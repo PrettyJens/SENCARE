@@ -4,51 +4,71 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sencare Portal</title>
-    
     <link rel="stylesheet" href="style.css">
-    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet">
 </head>
 <body>
 
+    <!-- ===================== LOGIN SCREEN ===================== -->
     <div id="login-screen" class="page-wrapper">
-        <span class="outer-brand-label">SENCARE</span>
+        <div class="outer-brand-label">
+            <span class="seal">
+                <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="2"/>
+                    <path d="M13 21.5L17.5 26L27.5 14.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </span>
+            SENCARE
+        </div>
+
         <main class="login-container">
             <section class="brand-section">
                 <div class="brand-title-wrap">
                     <div class="logo-placeholder-container">
-                        <img src="logo.png" alt="Logo Space" class="brand-logo-img">
+                        <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="60" cy="60" r="56" stroke="currentColor" stroke-width="2.5" stroke-dasharray="1 7" stroke-linecap="round"/>
+                            <circle cx="60" cy="60" r="44" stroke="currentColor" stroke-width="2"/>
+                            <path d="M40 64C40 64 48 78 60 78C72 78 80 64 80 64" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                            <circle cx="46" cy="50" r="3.5" fill="currentColor"/>
+                            <circle cx="74" cy="50" r="3.5" fill="currentColor"/>
+                        </svg>
                     </div>
                     <div class="brand-text-group">
                         <h1 class="brand-main-title">SENCARE</h1>
-                        <p class="brand-subtitle">STAFF</p>
+                        <p class="brand-subtitle">STAFF PORTAL</p>
                     </div>
                 </div>
+                <p class="brand-tagline">Serving the senior citizens of our community, one request at a time.</p>
             </section>
 
             <div class="form-card-wrapper">
                 <section class="form-section">
-                    <h2 class="form-title">SENCARE</h2>
-                    <form id="login-form" class="login-form">
-                        <div class="input-group">
-                            <label for="osca-id">OSCA ID Number:</label>
-                            <input type="text" id="osca-id" required>
+                    <div>
+                        <div class="form-top">
+                            <h2 class="form-title">Welcome back</h2>
+                            <p class="form-subtitle">Sign in with your OSCA staff credentials.</p>
                         </div>
-                        <div class="input-group">
-                            <label for="password">Password:</label>
-                            <input type="password" id="password" required>
+                        <form id="login-form" class="login-form">
+                            <div class="input-group">
+                                <label for="osca-id">OSCA ID Number</label>
+                                <input type="text" id="osca-id" placeholder="e.g. OSCA-2026-00482" required>
+                            </div>
+                            <div class="input-group">
+                                <label for="password">Password</label>
+                                <input type="password" id="password" placeholder="Enter your password" required>
+                            </div>
+                            <button type="submit" class="login-btn">Log in to dashboard</button>
+                        </form>
+                        <div class="form-links">
+                            <a href="#">Forgot password</a>
+                            <span class="divider">•</span>
+                            <a href="#">Need help?</a>
                         </div>
-                        <button type="submit" class="login-btn">Login</button>
-                    </form>
-                    <div class="form-links">
-                        <a href="#">Forgot Password</a>
-                        <span class="divider">|</span>
-                        <a href="#">Need Help?</a>
                     </div>
                     <footer class="form-footer">
-                        <p>2026 Local Government Unit</p>
+                        <p>© 2026 Local Government Unit</p>
                         <p>Office of Senior Citizens Affairs (OSCA)</p>
                     </footer>
                 </section>
@@ -56,71 +76,194 @@
         </main>
     </div>
 
+    <!-- ===================== DASHBOARD SCREEN ===================== -->
     <div id="dashboard-screen" class="dashboard-container hidden">
+
         <aside class="sidebar" id="sidebar-panel">
             <div class="sidebar-header">
-                <h2 class="sidebar-brand-text">SENCARE</h2>
-                <div class="menu-toggle" id="hamburger-trigger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                <div class="sidebar-brand">
+                    <span class="seal small">
+                        <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="2"/>
+                            <path d="M13 21.5L17.5 26L27.5 14.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </span>
+                    <h2 class="sidebar-brand-text">SENCARE</h2>
                 </div>
+                <button class="menu-toggle" id="hamburger-trigger" aria-label="Toggle menu" aria-expanded="true">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
             </div>
-            
+
             <nav class="sidebar-nav">
                 <a href="#" class="nav-item active" data-target="dashboard-content">
-                    <span class="nav-icon">📊</span>
+                    <span class="nav-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none"><rect x="3.5" y="3.5" width="7" height="9" rx="1.5" stroke="currentColor" stroke-width="1.8"/><rect x="13.5" y="3.5" width="7" height="5" rx="1.5" stroke="currentColor" stroke-width="1.8"/><rect x="13.5" y="11.5" width="7" height="9" rx="1.5" stroke="currentColor" stroke-width="1.8"/><rect x="3.5" y="15.5" width="7" height="5" rx="1.5" stroke="currentColor" stroke-width="1.8"/></svg>
+                    </span>
                     <span class="nav-text">Dashboard</span>
                 </a>
                 <a href="#" class="nav-item" data-target="request-content">
-                    <span class="nav-icon">📋</span>
+                    <span class="nav-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none"><rect x="4.5" y="3" width="15" height="18" rx="1.5" stroke="currentColor" stroke-width="1.8"/><path d="M8.5 8H15.5M8.5 12H15.5M8.5 16H12.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                    </span>
                     <span class="nav-text">Request Management</span>
+                    <span class="nav-badge">12</span>
                 </a>
                 <a href="#" class="nav-item" data-target="senior-content">
-                    <span class="nav-icon">👴</span>
+                    <span class="nav-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="3.5" stroke="currentColor" stroke-width="1.8"/><path d="M4.5 20C4.5 16 7.8 13.5 12 13.5C16.2 13.5 19.5 16 19.5 20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                    </span>
                     <span class="nav-text">Senior Citizen Info</span>
                 </a>
                 <a href="#" class="nav-item" data-target="priority-content">
-                    <span class="nav-icon">🔷</span>
+                    <span class="nav-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none"><path d="M12 3L14.5 9.5L21 10.5L16.2 15L17.5 21.5L12 18.2L6.5 21.5L7.8 15L3 10.5L9.5 9.5L12 3Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+                    </span>
                     <span class="nav-text">Priority Monitoring</span>
                 </a>
                 <a href="#" class="nav-item" data-target="home-content">
-                    <span class="nav-icon">🏠</span>
+                    <span class="nav-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none"><path d="M4 11L12 4L20 11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 9.5V20H18V9.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </span>
                     <span class="nav-text">Home Visit</span>
                 </a>
                 <a href="#" class="nav-item" data-target="updates-content">
-                    <span class="nav-icon">🔔</span>
-                    <span class="nav-text">Updates and Notifications</span>
+                    <span class="nav-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none"><path d="M6 9.5C6 6 8.5 3.5 12 3.5C15.5 3.5 18 6 18 9.5C18 14.5 20 16 20 16H4C4 16 6 14.5 6 9.5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M10 19.5C10.4 20.3 11.1 20.8 12 20.8C12.9 20.8 13.6 20.3 14 19.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                    </span>
+                    <span class="nav-text">Updates &amp; Notifications</span>
+                    <span class="nav-badge">3</span>
                 </a>
                 <a href="#" class="nav-item" data-target="photo-content">
-                    <span class="nav-icon">📷</span>
+                    <span class="nav-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none"><path d="M4 8.5C4 7.4 4.9 6.5 6 6.5H8L9.2 4.5H14.8L16 6.5H18C19.1 6.5 20 7.4 20 8.5V17C20 18.1 19.1 19 18 19H6C4.9 19 4 18.1 4 17V8.5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="12" cy="12.5" r="3.2" stroke="currentColor" stroke-width="1.8"/></svg>
+                    </span>
                     <span class="nav-text">Photo Verification</span>
                 </a>
             </nav>
-            
+
             <div class="sidebar-footer">
-                <p class="user-role-text">Staff</p>
+                <div class="profile-card" tabindex="0">
+                    <div class="profile-avatar">JC</div>
+                    <div class="profile-info">
+                        <p class="profile-name">Juana Cruz</p>
+                        <p class="user-role-text">Staff · Field Officer</p>
+                    </div>
+                </div>
             </div>
         </aside>
 
-        <main class="main-content">
-            <div id="dashboard-content" class="tab-content">
-                <header class="content-header">
-                    <h1>Good Afternoon, Staff</h1>
-                    <p>Here's What's Happening Today!</p>
-                </header>
-                <section class="metrics-grid">
-                    <div class="metric-card"><span class="count">248</span><span class="label">Requests</span></div>
-                    <div class="metric-card"><span class="count">19,856</span><span class="label">Seniors</span></div>
-                </section>
-            </div>
-            <div id="request-content" class="tab-content hidden"><h1>Request Management Panel</h1></div>
-            <div id="senior-content" class="tab-content hidden"><h1>Senior Citizen Information</h1></div>
-            <div id="priority-content" class="tab-content hidden"><h1>Priority Monitoring</h1></div>
-            <div id="home-content" class="tab-content hidden"><h1>Home Visit Schedules</h1></div>
-            <div id="updates-content" class="tab-content hidden"><h1>Updates & Live Notifications</h1></div>
-            <div id="photo-content" class="tab-content hidden"><h1>Photo Verification Desk</h1></div>
-        </main>
+        <div class="content-scroll">
+            <main class="main-content">
+
+                <!-- DASHBOARD -->
+                <div id="dashboard-content" class="tab-content">
+                    <header class="content-header">
+                        <div>
+                            <h1>Good afternoon, Juana</h1>
+                            <p>Here's what's happening today, Thursday, June 18.</p>
+                        </div>
+                        <div class="header-date-pill">🕒 2:45 PM</div>
+                    </header>
+                    <section class="metrics-grid">
+                        <div class="metric-card">
+                            <span class="metric-icon">📋</span>
+                            <span class="count">248</span>
+                            <span class="label">Active Requests</span>
+                            <span class="trend up">↑ 14 since yesterday</span>
+                        </div>
+                        <div class="metric-card">
+                            <span class="metric-icon">👴</span>
+                            <span class="count">19,856</span>
+                            <span class="label">Registered Seniors</span>
+                            <span class="trend">in this LGU</span>
+                        </div>
+                        <div class="metric-card">
+                            <span class="metric-icon">🔷</span>
+                            <span class="count">37</span>
+                            <span class="label">Priority Cases</span>
+                            <span class="trend warn">Needs review</span>
+                        </div>
+                        <div class="metric-card">
+                            <span class="metric-icon">🏠</span>
+                            <span class="count">9</span>
+                            <span class="label">Home Visits Today</span>
+                            <span class="trend">3 completed</span>
+                        </div>
+                    </section>
+                    <section class="panel-row">
+                        <div class="panel">
+                            <h3>Recent requests</h3>
+                            <ul class="simple-list">
+                                <li><span class="dot dot-amber"></span> Pension claim — Roberto Santos <span class="time">10 min ago</span></li>
+                                <li><span class="dot dot-green"></span> ID renewal — Lourdes Reyes <span class="time">42 min ago</span></li>
+                                <li><span class="dot dot-amber"></span> Medical assistance — Pacita Lim <span class="time">1 hr ago</span></li>
+                                <li><span class="dot dot-green"></span> Burial assistance — Elena Tan <span class="time">3 hrs ago</span></li>
+                            </ul>
+                        </div>
+                        <div class="panel">
+                            <h3>Today's home visits</h3>
+                            <ul class="simple-list">
+                                <li><span class="dot dot-blue"></span> Brgy. San Isidro — 3 households <span class="time">9:00 AM</span></li>
+                                <li><span class="dot dot-blue"></span> Brgy. Maligaya — 2 households <span class="time">1:30 PM</span></li>
+                                <li><span class="dot dot-blue"></span> Brgy. Bagong Pook — 4 households <span class="time">4:00 PM</span></li>
+                            </ul>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- REQUEST MANAGEMENT -->
+                <div id="request-content" class="tab-content hidden">
+                    <header class="content-header">
+                        <div><h1>Request Management</h1><p>Review and process senior citizen service requests.</p></div>
+                    </header>
+                    <section class="panel"><p class="placeholder-text">Request queue and case details will appear here.</p></section>
+                </div>
+
+                <!-- SENIOR CITIZEN INFO -->
+                <div id="senior-content" class="tab-content hidden">
+                    <header class="content-header">
+                        <div><h1>Senior Citizen Information</h1><p>Search and manage senior citizen records.</p></div>
+                    </header>
+                    <section class="panel"><p class="placeholder-text">Senior citizen directory and profiles will appear here.</p></section>
+                </div>
+
+                <!-- PRIORITY MONITORING -->
+                <div id="priority-content" class="tab-content hidden">
+                    <header class="content-header">
+                        <div><h1>Priority Monitoring</h1><p>Track seniors who need urgent or close attention.</p></div>
+                    </header>
+                    <section class="panel"><p class="placeholder-text">Priority case list will appear here.</p></section>
+                </div>
+
+                <!-- HOME VISIT -->
+                <div id="home-content" class="tab-content hidden">
+                    <header class="content-header">
+                        <div><h1>Home Visit</h1><p>Plan and log scheduled home visits.</p></div>
+                    </header>
+                    <section class="panel"><p class="placeholder-text">Home visit schedule will appear here.</p></section>
+                </div>
+
+                <!-- UPDATES -->
+                <div id="updates-content" class="tab-content hidden">
+                    <header class="content-header">
+                        <div><h1>Updates &amp; Notifications</h1><p>Stay current with announcements and alerts.</p></div>
+                    </header>
+                    <section class="panel"><p class="placeholder-text">Notifications will appear here.</p></section>
+                </div>
+
+                <!-- PHOTO VERIFICATION -->
+                <div id="photo-content" class="tab-content hidden">
+                    <header class="content-header">
+                        <div><h1>Photo Verification</h1><p>Confirm identity photos submitted with requests.</p></div>
+                    </header>
+                    <section class="panel"><p class="placeholder-text">Photos awaiting verification will appear here.</p></section>
+                </div>
+
+            </main>
+        </div>
     </div>
 
     <script src="script.js"></script>
