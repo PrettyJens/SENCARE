@@ -14,9 +14,7 @@
 <!-- ===================== LOGIN SCREEN ===================== -->
 <div id="login-screen" class="page-wrapper">
     <div class="outer-brand-label">
-        <span class="seal">
-            <svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="2"/><path d="M13 21.5L17.5 26L27.5 14.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </span>
+        <span class="seal"><svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="2"/><path d="M13 21.5L17.5 26L27.5 14.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         SENCARE
     </div>
     <main class="login-container">
@@ -46,90 +44,42 @@
                         <p class="form-subtitle">Sign in with your OSCA staff credentials.</p>
                     </div>
                     <form id="login-form" class="login-form">
-                        <div class="input-group">
-                            <label for="osca-id">OSCA ID Number</label>
-                            <input type="text" id="osca-id" placeholder="e.g. OSCA-2026-00482" required>
-                        </div>
-                        <div class="input-group">
-                            <label for="password">Password</label>
-                            <input type="password" id="password" placeholder="Enter your password" required>
-                        </div>
+                        <div class="input-group"><label for="osca-id">OSCA ID Number</label><input type="text" id="osca-id" placeholder="e.g. OSCA-2026-00482" required></div>
+                        <div class="input-group"><label for="password">Password</label><input type="password" id="password" placeholder="Enter your password" required></div>
                         <button type="submit" class="login-btn">Log in to dashboard</button>
                     </form>
-                    <div class="form-links">
-                        <a href="#">Forgot password</a>
-                        <span class="divider">•</span>
-                        <a href="#">Need help?</a>
-                    </div>
+                    <div class="form-links"><a href="#">Forgot password</a><span class="divider">•</span><a href="#">Need help?</a></div>
                 </div>
-                <footer class="form-footer">
-                    <p>© 2026 Local Government Unit</p>
-                    <p>Office of Senior Citizens Affairs (OSCA)</p>
-                </footer>
+                <footer class="form-footer"><p>© 2026 Local Government Unit</p><p>Office of Senior Citizens Affairs (OSCA)</p></footer>
             </section>
         </div>
     </main>
 </div>
 
-<!-- ===================== DASHBOARD SCREEN ===================== -->
+<!-- ===================== DASHBOARD ===================== -->
 <div id="dashboard-screen" class="dashboard-container hidden">
-
     <aside class="sidebar" id="sidebar-panel">
         <div class="sidebar-header">
             <div class="sidebar-brand">
-                <span class="seal small">
-                    <svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="2"/><path d="M13 21.5L17.5 26L27.5 14.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </span>
+                <span class="seal small"><svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="2"/><path d="M13 21.5L17.5 26L27.5 14.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
                 <h2 class="sidebar-brand-text">SENCARE</h2>
             </div>
-            <button class="menu-toggle" id="hamburger-trigger" aria-label="Toggle menu" aria-expanded="true">
-                <span></span><span></span><span></span>
-            </button>
+            <button class="menu-toggle" id="hamburger-trigger" aria-label="Toggle menu" aria-expanded="true"><span></span><span></span><span></span></button>
         </div>
-
         <nav class="sidebar-nav">
-            <a href="#" class="nav-item active" data-target="dashboard-content">
-                <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="3.5" y="3.5" width="7" height="9" rx="1.5" stroke="currentColor" stroke-width="1.8"/><rect x="13.5" y="3.5" width="7" height="5" rx="1.5" stroke="currentColor" stroke-width="1.8"/><rect x="13.5" y="11.5" width="7" height="9" rx="1.5" stroke="currentColor" stroke-width="1.8"/><rect x="3.5" y="15.5" width="7" height="5" rx="1.5" stroke="currentColor" stroke-width="1.8"/></svg></span>
-                <span class="nav-text">Dashboard</span>
-            </a>
-            <a href="#" class="nav-item" data-target="request-content">
-                <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="4.5" y="3" width="15" height="18" rx="1.5" stroke="currentColor" stroke-width="1.8"/><path d="M8.5 8H15.5M8.5 12H15.5M8.5 16H12.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
-                <span class="nav-text">Request Management</span>
-                <span class="nav-badge">12</span>
-            </a>
-            <a href="#" class="nav-item" data-target="senior-content">
-                <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="3.5" stroke="currentColor" stroke-width="1.8"/><path d="M4.5 20C4.5 16 7.8 13.5 12 13.5C16.2 13.5 19.5 16 19.5 20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
-                <span class="nav-text">Senior Citizen Info</span>
-            </a>
-            <a href="#" class="nav-item" data-target="priority-content">
-                <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3L14.5 9.5L21 10.5L16.2 15L17.5 21.5L12 18.2L6.5 21.5L7.8 15L3 10.5L9.5 9.5L12 3Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></span>
-                <span class="nav-text">Priority Monitoring</span>
-            </a>
-            <a href="#" class="nav-item" data-target="home-content">
-                <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 11L12 4L20 11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 9.5V20H18V9.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-                <span class="nav-text">Home Visit</span>
-            </a>
-            <a href="#" class="nav-item" data-target="updates-content">
-                <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M6 9.5C6 6 8.5 3.5 12 3.5C15.5 3.5 18 6 18 9.5C18 14.5 20 16 20 16H4C4 16 6 14.5 6 9.5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M10 19.5C10.4 20.3 11.1 20.8 12 20.8C12.9 20.8 13.6 20.3 14 19.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
-                <span class="nav-text">Updates &amp; Notifications</span>
-                <span class="nav-badge">3</span>
-            </a>
-            <a href="#" class="nav-item" data-target="photo-content">
-                <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 8.5C4 7.4 4.9 6.5 6 6.5H8L9.2 4.5H14.8L16 6.5H18C19.1 6.5 20 7.4 20 8.5V17C20 18.1 19.1 19 18 19H6C4.9 19 4 18.1 4 17V8.5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="12" cy="12.5" r="3.2" stroke="currentColor" stroke-width="1.8"/></svg></span>
-                <span class="nav-text">Photo Verification</span>
-            </a>
+            <a href="#" class="nav-item active" data-target="dashboard-content"><span class="nav-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="3.5" y="3.5" width="7" height="9" rx="1.5" stroke="currentColor" stroke-width="1.8"/><rect x="13.5" y="3.5" width="7" height="5" rx="1.5" stroke="currentColor" stroke-width="1.8"/><rect x="13.5" y="11.5" width="7" height="9" rx="1.5" stroke="currentColor" stroke-width="1.8"/><rect x="3.5" y="15.5" width="7" height="5" rx="1.5" stroke="currentColor" stroke-width="1.8"/></svg></span><span class="nav-text">Dashboard</span></a>
+            <a href="#" class="nav-item" data-target="request-content"><span class="nav-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="4.5" y="3" width="15" height="18" rx="1.5" stroke="currentColor" stroke-width="1.8"/><path d="M8.5 8H15.5M8.5 12H15.5M8.5 16H12.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span><span class="nav-text">Request Management</span></a>
+            <a href="#" class="nav-item" data-target="senior-content"><span class="nav-icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="3.5" stroke="currentColor" stroke-width="1.8"/><path d="M4.5 20C4.5 16 7.8 13.5 12 13.5C16.2 13.5 19.5 16 19.5 20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span><span class="nav-text">Senior Citizen Info</span></a>
+            <a href="#" class="nav-item" data-target="priority-content"><span class="nav-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3L14.5 9.5L21 10.5L16.2 15L17.5 21.5L12 18.2L6.5 21.5L7.8 15L3 10.5L9.5 9.5L12 3Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></span><span class="nav-text">Priority Monitoring</span></a>
+            <a href="#" class="nav-item" data-target="home-content"><span class="nav-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 11L12 4L20 11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 9.5V20H18V9.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="nav-text">Home Visit</span></a>
+            <a href="#" class="nav-item" data-target="updates-content"><span class="nav-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M6 9.5C6 6 8.5 3.5 12 3.5C15.5 3.5 18 6 18 9.5C18 14.5 20 16 20 16H4C4 16 6 14.5 6 9.5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M10 19.5C10.4 20.3 11.1 20.8 12 20.8C12.9 20.8 13.6 20.3 14 19.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span><span class="nav-text">Updates &amp; Notifications</span></a>
+            <a href="#" class="nav-item" data-target="photo-content"><span class="nav-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 8.5C4 7.4 4.9 6.5 6 6.5H8L9.2 4.5H14.8L16 6.5H18C19.1 6.5 20 7.4 20 8.5V17C20 18.1 19.1 19 18 19H6C4.9 19 4 18.1 4 17V8.5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="12" cy="12.5" r="3.2" stroke="currentColor" stroke-width="1.8"/></svg></span><span class="nav-text">Photo Verification</span></a>
         </nav>
-
         <div class="sidebar-footer">
             <div class="profile-card" id="profile-trigger" tabindex="0" role="button" aria-label="View your profile">
                 <div class="profile-avatar" id="sidebar-avatar">JC</div>
-                <div class="profile-info">
-                    <p class="profile-name" id="sidebar-name">Juana Cruz</p>
-                    <p class="user-role-text" id="sidebar-role">Staff · Field Officer</p>
-                </div>
-                <span class="profile-chevron" aria-hidden="true">
-                    <svg viewBox="0 0 16 16" fill="none"><path d="M6 4L10 8L6 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </span>
+                <div class="profile-info"><p class="profile-name" id="sidebar-name">Juana Cruz</p><p class="user-role-text" id="sidebar-role">Staff · Field Officer</p></div>
+                <span class="profile-chevron" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none"><path d="M6 4L10 8L6 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
             </div>
         </div>
     </aside>
@@ -140,10 +90,7 @@
             <!-- DASHBOARD -->
             <div id="dashboard-content" class="tab-content">
                 <header class="content-header">
-                    <div>
-                        <h1>Good afternoon, Juana</h1>
-                        <p>Here's what's happening today, Thursday, June 18.</p>
-                    </div>
+                    <div><h1>Good afternoon, Juana</h1><p>Here's what's happening today, Thursday, June 18.</p></div>
                     <div class="header-date-pill">🕒 2:45 PM</div>
                 </header>
                 <section class="metrics-grid">
@@ -153,112 +100,283 @@
                     <div class="metric-card"><span class="metric-icon">🏠</span><span class="count">9</span><span class="label">Home Visits Today</span><span class="trend">3 completed</span></div>
                 </section>
                 <section class="panel-row">
-                    <div class="panel">
-                        <h3>Recent requests</h3>
-                        <ul class="simple-list">
-                            <li><span class="dot dot-amber"></span> Pension claim — Roberto Santos <span class="time">10 min ago</span></li>
-                            <li><span class="dot dot-green"></span> ID renewal — Lourdes Reyes <span class="time">42 min ago</span></li>
-                            <li><span class="dot dot-amber"></span> Medical assistance — Pacita Lim <span class="time">1 hr ago</span></li>
-                            <li><span class="dot dot-green"></span> Burial assistance — Elena Tan <span class="time">3 hrs ago</span></li>
-                        </ul>
-                    </div>
-                    <div class="panel">
-                        <h3>Today's home visits</h3>
-                        <ul class="simple-list">
-                            <li><span class="dot dot-blue"></span> Brgy. San Isidro — 3 households <span class="time">9:00 AM</span></li>
-                            <li><span class="dot dot-blue"></span> Brgy. Maligaya — 2 households <span class="time">1:30 PM</span></li>
-                            <li><span class="dot dot-blue"></span> Brgy. Bagong Pook — 4 households <span class="time">4:00 PM</span></li>
-                        </ul>
-                    </div>
+                    <div class="panel"><h3>Recent requests</h3><ul class="simple-list">
+                        <li><span class="dot dot-amber"></span> Pension claim — Roberto Santos <span class="time">10 min ago</span></li>
+                        <li><span class="dot dot-green"></span> ID renewal — Lourdes Reyes <span class="time">42 min ago</span></li>
+                        <li><span class="dot dot-amber"></span> Medical assistance — Pacita Lim <span class="time">1 hr ago</span></li>
+                        <li><span class="dot dot-green"></span> Burial assistance — Elena Tan <span class="time">3 hrs ago</span></li>
+                    </ul></div>
+                    <div class="panel"><h3>Today's home visits</h3><ul class="simple-list">
+                        <li><span class="dot dot-blue"></span> Brgy. San Isidro — 3 households <span class="time">9:00 AM</span></li>
+                        <li><span class="dot dot-blue"></span> Brgy. Maligaya — 2 households <span class="time">1:30 PM</span></li>
+                        <li><span class="dot dot-blue"></span> Brgy. Bagong Pook — 4 households <span class="time">4:00 PM</span></li>
+                    </ul></div>
                 </section>
             </div>
 
-            <!-- REQUEST MANAGEMENT -->
+            <!-- ===================== REQUEST MANAGEMENT ===================== -->
             <div id="request-content" class="tab-content hidden">
-                <header class="content-header"><div><h1>Request Management</h1><p>Review and process senior citizen service requests.</p></div></header>
-                <section class="panel"><p class="placeholder-text">Request queue and case details will appear here.</p></section>
+                <header class="content-header">
+                    <div><h1>Assistance Request Management</h1><p>Review all incoming requests and make decisions (approve, reject, pending)</p></div>
+                </header>
+                <section class="metrics-grid">
+                    <div class="metric-card"><span class="count">248</span><span class="label">Requests</span></div>
+                    <div class="metric-card"><span class="count">19</span><span class="label">Pending</span></div>
+                    <div class="metric-card"><span class="count">30</span><span class="label">Approved</span></div>
+                    <div class="metric-card"><span class="count">8</span><span class="label">Rejected</span></div>
+                </section>
+                <div class="panel">
+                    <div class="section-toolbar">
+                        <span class="section-toolbar-title">Recent Requests</span>
+                        <div class="toolbar-right">
+                            <input type="text" class="toolbar-search" id="req-search" placeholder="Search">
+                            <select class="toolbar-select" id="req-status-filter"><option value="">Status</option><option>Approved</option><option>Pending</option><option>Rejected</option></select>
+                            <select class="toolbar-select" id="req-type-filter"><option value="">Equipment</option><option>Medical</option><option>Financial</option></select>
+                        </div>
+                    </div>
+                    <div class="data-table-wrap">
+                        <table class="data-table" id="request-table">
+                            <thead><tr><th>REQ ID</th><th>TYPE</th><th>STATUS</th><th>AMOUNT/ITEM</th><th>DATE</th><th>SENIOR</th><th>PRIORITY LEVEL</th></tr></thead>
+                            <tbody id="request-tbody"></tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
 
-            <!-- SENIOR CITIZEN INFO -->
+            <!-- ===================== SENIOR CITIZEN INFO ===================== -->
             <div id="senior-content" class="tab-content hidden">
-                <header class="content-header"><div><h1>Senior Citizen Information</h1><p>Search and manage senior citizen records.</p></div></header>
-                <section class="panel"><p class="placeholder-text">Senior citizen directory and profiles will appear here.</p></section>
+                <header class="content-header">
+                    <div><h1>Senior Citizen Information Management</h1><p>Collect senior citizen information for vulnerability assessment</p></div>
+                </header>
+                <section class="metrics-grid">
+                    <div class="metric-card"><span class="count">19,856</span><span class="label">Total Registered</span></div>
+                    <div class="metric-card"><span class="count">8,151</span><span class="label">Total Male</span></div>
+                    <div class="metric-card"><span class="count">11,705</span><span class="label">Total Female</span></div>
+                    <div class="metric-card"><span class="count">19,856</span><span class="label">Total Beneficiaries</span></div>
+                </section>
+                <!-- Advanced Filters -->
+                <div class="panel filter-panel" id="senior-filter-panel">
+                    <div class="filter-panel-header">
+                        <span class="filter-panel-title">Advanced Filters</span>
+                        <button class="filter-collapse-btn" id="senior-filter-toggle">Collapse</button>
+                    </div>
+                    <div id="senior-filter-body">
+                        <input type="text" class="filter-search-big" id="senior-search" placeholder="Search by Senior ID or Name...">
+                        <div class="filter-grid">
+                            <div class="filter-field"><label>BARANGAY</label><input type="text" id="sf-barangay" placeholder=""></div>
+                            <div class="filter-field"><label>AGE</label><input type="text" id="sf-age" placeholder=""></div>
+                            <div class="filter-field"><label>SEX</label><input type="text" id="sf-sex" placeholder=""></div>
+                            <div class="filter-field"><label>CIVIL STATUS</label><input type="text" id="sf-civil" placeholder=""></div>
+                            <div class="filter-field"><label>LIVING ARRANGEMENT</label><input type="text" id="sf-living" placeholder=""></div>
+                            <div class="filter-field"><label>HEALTH CONDITION</label><input type="text" id="sf-health" placeholder=""></div>
+                            <div class="filter-field"><label>MOBILITY STATUS</label><input type="text" id="sf-mobility" placeholder=""></div>
+                            <div class="filter-field"><label>PRIORITY LEVEL</label><input type="text" id="sf-priority" placeholder=""></div>
+                            <div class="filter-field"><label>STATUS</label><input type="text" id="sf-status" placeholder=""></div>
+                        </div>
+                        <div class="filter-actions">
+                            <button class="filter-clear-btn" id="senior-filter-clear">CLEAR ALL</button>
+                            <button class="filter-apply-btn" id="senior-filter-apply">APPLY FILTERS</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel">
+                    <div class="section-toolbar">
+                        <div class="toolbar-right" style="margin-left:auto">
+                            <button class="toolbar-sort-btn">SORT</button>
+                            <button class="toolbar-add-btn" id="senior-add-btn">+ ADD RECORD</button>
+                        </div>
+                    </div>
+                    <div class="data-table-wrap">
+                        <table class="data-table senior-table" id="senior-table">
+                            <thead><tr><th>SENIOR</th><th>AGE</th><th>BARANGAY</th><th>CIVIL STATUS</th><th>LIVING</th><th>HEALTH CONDITION</th><th>MOBILITY</th><th>PRIORITY</th><th>VULN. SCORE</th><th>STATUS</th><th>ACTIONS</th></tr></thead>
+                            <tbody id="senior-tbody"></tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
 
-            <!-- PRIORITY MONITORING -->
+            <!-- ===================== PRIORITY MONITORING ===================== -->
             <div id="priority-content" class="tab-content hidden">
-                <header class="content-header"><div><h1>Priority Monitoring</h1><p>Track seniors who need urgent or close attention.</p></div></header>
-                <section class="panel"><p class="placeholder-text">Priority case list will appear here.</p></section>
+                <header class="content-header">
+                    <div><h1>Senior Citizen Information Management</h1><p>Collect senior citizen information for vulnerability assessment</p></div>
+                </header>
+                <section class="metrics-grid">
+                    <div class="metric-card"><span class="count">19,856</span><span class="label">Total Registered</span></div>
+                    <div class="metric-card"><span class="count">299</span><span class="label">High Priority</span></div>
+                    <div class="metric-card"><span class="count">8,261</span><span class="label">Medium Priority</span></div>
+                    <div class="metric-card"><span class="count">11,296</span><span class="label">Low Priority</span></div>
+                </section>
+                <div class="panel priority-legend-panel">
+                    <p class="priority-legend-title">PRIORITY LEVEL</p>
+                    <p><span class="priority-badge high">HIGH PRIORITY:</span> (10-12) Critical, immediate attention</p>
+                    <p><span class="priority-badge medium">MEDIUM PRIORITY:</span> (7-9) Needs Assistance, not urgent</p>
+                    <p><span class="priority-badge low">LOW PRIORITY:</span> (4-6) Stable, minimal assistance</p>
+                </div>
+                <div class="panel" style="padding:0;overflow:hidden;">
+                    <div class="section-toolbar" style="padding:16px 20px;">
+                        <input type="text" class="toolbar-search" id="priority-search" placeholder="SEARCH" style="flex:1;max-width:400px;">
+                        <div class="toolbar-right" style="margin-left:auto"><button class="toolbar-sort-btn">SORT</button></div>
+                    </div>
+                    <div id="priority-list"></div>
+                </div>
             </div>
 
-            <!-- HOME VISIT -->
+            <!-- ===================== HOME VISIT ===================== -->
             <div id="home-content" class="tab-content hidden">
-                <header class="content-header"><div><h1>Home Visit</h1><p>Plan and log scheduled home visits.</p></div></header>
-                <section class="panel"><p class="placeholder-text">Home visit schedule will appear here.</p></section>
+                <header class="content-header">
+                    <div><h1>Home Visit Management</h1><p>Manage and schedule home visits, track their status.</p></div>
+                </header>
+                <section class="metrics-grid">
+                    <div class="metric-card"><span class="count">19,856</span><span class="label">Scheduled Visits</span></div>
+                    <div class="metric-card"><span class="count">299</span><span class="label">Completed</span></div>
+                    <div class="metric-card"><span class="count">8,261</span><span class="label">Missed Visits</span></div>
+                    <div class="metric-card"><span class="count">11,296</span><span class="label">Ongoing Visits</span></div>
+                </section>
+                <div class="panel filter-panel">
+                    <div class="filter-panel-header">
+                        <span class="filter-panel-title">Advanced Filters</span>
+                    </div>
+                    <div>
+                        <input type="text" class="filter-search-big" id="hv-search" placeholder="Search by Senior ID or Name...">
+                        <div class="filter-grid" style="grid-template-columns:1fr 1fr 1fr;">
+                            <div class="filter-field"><label>BARANGAY</label><input type="text" id="hv-barangay"></div>
+                            <div class="filter-field"><label>PRIORITY LEVEL</label><input type="text" id="hv-priority"></div>
+                            <div class="filter-field"><label>VISIT STATUS</label><input type="text" id="hv-status"></div>
+                        </div>
+                        <div class="filter-actions">
+                            <button class="filter-clear-btn">CLEAR ALL</button>
+                            <button class="filter-apply-btn">APPLY FILTERS</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel">
+                    <div class="section-toolbar">
+                        <div class="toolbar-right" style="margin-left:auto">
+                            <button class="toolbar-sort-btn">SORT</button>
+                            <button class="toolbar-add-btn">+ ADD SCHEDULE</button>
+                        </div>
+                    </div>
+                    <div class="data-table-wrap">
+                        <table class="data-table" id="hv-table">
+                            <thead><tr><th>VISIT ID</th><th>SENIOR NAME</th><th>ADDRESS</th><th>DATE &amp; TIME</th><th>ASSIGNED STAFF</th><th>PURPOSE</th><th>PRIORITY</th><th>STATUS</th></tr></thead>
+                            <tbody id="hv-tbody"></tbody>
+                        </table>
+                    </div>
+                    <div class="calendar-view-bar">
+                        <div><strong>Calendar View</strong><p>View all scheduled visits in calendar format.</p></div>
+                        <button class="calendar-open-btn">Open Calendar</button>
+                    </div>
+                </div>
             </div>
 
-            <!-- UPDATES -->
+            <!-- ===================== UPDATES & NOTIFICATIONS ===================== -->
             <div id="updates-content" class="tab-content hidden">
-                <header class="content-header"><div><h1>Updates &amp; Notifications</h1><p>Stay current with announcements and alerts.</p></div></header>
-                <section class="panel"><p class="placeholder-text">Notifications will appear here.</p></section>
+                <header class="content-header">
+                    <div><h1>Status Updates &amp; Notifications</h1><p>Provide updates to users regarding request status and release schedules and programs</p></div>
+                </header>
+                <div class="notif-layout">
+                    <!-- Send Notifications -->
+                    <div class="panel notif-panel">
+                        <div class="notif-panel-header">
+                            <span class="notif-panel-title">Send Notifications</span>
+                            <button class="notif-view-btn">View Notifications</button>
+                        </div>
+                        <div class="notif-form">
+                            <div class="notif-field"><label>Recipient</label><input type="text" id="notif-recipient" placeholder="Enter Senior Name or ID"></div>
+                            <div class="notif-field">
+                                <label>Message Templates</label>
+                                <div class="template-chips">
+                                    <button class="template-chip active" data-msg="Your assistance request has been approved. Please check your notification for claim details.">Request Approval</button>
+                                    <button class="template-chip" data-msg="We regret to inform you that your request has been rejected. Please visit the office for more information.">Request Rejection</button>
+                                    <button class="template-chip" data-msg="This is a reminder regarding your pending request. Please contact us for assistance.">Other Reminder</button>
+                                    <button class="template-chip" data-msg="This is a reminder about your upcoming claim. Please prepare your documents.">Claim Reminder</button>
+                                    <button class="template-chip" data-msg="A home visit has been scheduled for you. Our staff will arrive at the indicated time.">Home Visit Schedule</button>
+                                </div>
+                            </div>
+                            <div class="notif-field"><label>Message</label><textarea id="notif-message" rows="4">Your assistance request has been approved. Please check your notification for claim details.</textarea></div>
+                            <button class="notif-send-btn" id="notif-send-btn">Send Notification</button>
+                        </div>
+                    </div>
+                    <!-- Create Announcements -->
+                    <div class="panel notif-panel">
+                        <div class="notif-panel-header">
+                            <span class="notif-panel-title">Create Announcements</span>
+                            <button class="notif-view-btn">View Programs</button>
+                        </div>
+                        <div class="notif-form announce-form">
+                            <div class="announce-left">
+                                <div class="notif-field"><label>Program Title:</label><input type="text" id="announce-title" value="Free Check Up for Senior Citizen Of Sto. Tomas"></div>
+                                <div class="notif-field"><label>Details:</label><textarea id="announce-details" rows="6" placeholder="Enter program details..."></textarea></div>
+                            </div>
+                            <div class="announce-right">
+                                <div class="announce-preview-card">
+                                    <p id="announce-preview-date">Date: May 18 2025</p>
+                                    <p id="announce-preview-time">Time: 10:00 AM - 5:00 PM</p>
+                                    <p id="announce-preview-loc">Location: OSCA Office</p>
+                                </div>
+                                <div class="announce-meta-fields">
+                                    <div class="notif-field"><label>Date</label><input type="date" id="announce-date"></div>
+                                    <div class="notif-field"><label>Time</label><input type="text" id="announce-time" placeholder="10:00 AM - 5:00 PM"></div>
+                                    <div class="notif-field"><label>Location</label><input type="text" id="announce-loc" placeholder="OSCA Office"></div>
+                                </div>
+                                <button class="notif-send-btn" id="announce-add-btn" style="margin-top:auto;">Add Announcement</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <!-- PHOTO VERIFICATION -->
+            <!-- ===================== PHOTO VERIFICATION ===================== -->
             <div id="photo-content" class="tab-content hidden">
-                <header class="content-header"><div><h1>Photo Verification</h1><p>Confirm identity photos submitted with requests.</p></div></header>
-                <section class="panel"><p class="placeholder-text">Photos awaiting verification will appear here.</p></section>
+                <header class="content-header">
+                    <div><h1>Senior Presence Verification Management</h1><p>Review and Manage Senior Citizens Quarterly Live Photo</p></div>
+                </header>
+                <section class="metrics-grid">
+                    <div class="metric-card"><span class="count">19,856</span><span class="label">Pending Review</span></div>
+                    <div class="metric-card"><span class="count">299</span><span class="label">Auto-Approved</span></div>
+                    <div class="metric-card"><span class="count">8,261</span><span class="label">Auto-Reject</span></div>
+                    <div class="metric-card"><span class="count">11,296</span><span class="label">Total Approved</span></div>
+                </section>
+                <div class="panel">
+                    <div class="section-toolbar" style="flex-wrap:wrap;gap:10px;">
+                        <input type="text" class="toolbar-search" id="photo-search" placeholder="SEARCH" style="min-width:160px;">
+                        <select class="toolbar-select" id="photo-barangay"><option>All Barangay</option><option>San Isidro</option><option>Maligaya</option><option>Bagong Pook</option></select>
+                        <select class="toolbar-select" id="photo-status"><option>All Status</option><option>Auto-Approved</option><option>Pending Review</option><option>Auto-Reject</option></select>
+                        <select class="toolbar-select" id="photo-date"><option>May 1 - May 31,2026</option><option>April 1 - April 30,2026</option></select>
+                    </div>
+                    <div class="data-table-wrap">
+                        <table class="data-table photo-table" id="photo-table">
+                            <thead><tr><th>Senior Citizen</th><th>OSCA ID</th><th>Barangay</th><th>Submitted</th><th>Match Score</th><th>System Decision</th><th>Status</th><th>Actions</th></tr></thead>
+                            <tbody id="photo-tbody"></tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
 
             <!-- ===================== STAFF PROFILE ===================== -->
             <div id="profile-content" class="tab-content hidden">
-
                 <header class="content-header">
-                    <div>
-                        <h1>My Profile</h1>
-                        <p>Your account information and settings.</p>
-                    </div>
+                    <div><h1>My Profile</h1><p>Your account information and settings.</p></div>
                     <div class="profile-header-actions">
-                        <button class="profile-edit-btn" id="profile-edit-btn">
-                            <svg viewBox="0 0 20 20" fill="none"><path d="M13.5 3.5L16.5 6.5L7 16H4V13L13.5 3.5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
-                            Edit Profile
-                        </button>
-                        <button class="logout-btn" id="logout-btn">
-                            <svg viewBox="0 0 20 20" fill="none"><path d="M8 10H17M14 7L17 10L14 13" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M11 4H4.5C3.7 4 3 4.7 3 5.5V14.5C3 15.3 3.7 16 4.5 16H11" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
-                            Log Out
-                        </button>
+                        <button class="profile-edit-btn" id="profile-edit-btn"><svg viewBox="0 0 20 20" fill="none"><path d="M13.5 3.5L16.5 6.5L7 16H4V13L13.5 3.5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>Edit Profile</button>
+                        <button class="logout-btn" id="logout-btn"><svg viewBox="0 0 20 20" fill="none"><path d="M8 10H17M14 7L17 10L14 13" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M11 4H4.5C3.7 4 3 4.7 3 5.5V14.5C3 15.3 3.7 16 4.5 16H11" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>Log Out</button>
                     </div>
                 </header>
-
-                <!-- Hero card -->
                 <div class="profile-hero">
                     <div class="profile-hero-avatar" id="profile-hero-avatar">JC</div>
                     <div class="profile-hero-info">
                         <h2 class="profile-hero-name" id="profile-hero-name">Juana Cruz</h2>
                         <p class="profile-hero-role" id="profile-hero-role">Staff · Field Officer</p>
                         <div class="profile-hero-meta">
-                            <span class="profile-meta-chip" id="profile-hero-id">
-                                <svg viewBox="0 0 16 16" fill="none"><rect x="2" y="3" width="12" height="10" rx="1.5" stroke="currentColor" stroke-width="1.5"/><path d="M5 7H11M5 10H8.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
-                                OSCA-2026-00482
-                            </span>
-                            <span class="profile-meta-chip" id="profile-hero-dept">
-                                <svg viewBox="0 0 16 16" fill="none"><path d="M2 13V6L8 2L14 6V13H10V9.5H6V13H2Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
-                                Field Services Division
-                            </span>
+                            <span class="profile-meta-chip" id="profile-hero-id"><svg viewBox="0 0 16 16" fill="none"><rect x="2" y="3" width="12" height="10" rx="1.5" stroke="currentColor" stroke-width="1.5"/><path d="M5 7H11M5 10H8.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>OSCA-2026-00482</span>
+                            <span class="profile-meta-chip" id="profile-hero-dept"><svg viewBox="0 0 16 16" fill="none"><path d="M2 13V6L8 2L14 6V13H10V9.5H6V13H2Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>Field Services Division</span>
                             <span class="profile-status-badge active" id="profile-status-badge">● Active</span>
                         </div>
                     </div>
                 </div>
-
-                <!-- VIEW MODE: info panels -->
                 <div id="profile-view-mode">
                     <div class="profile-grid">
-
-                        <!-- Personal Information -->
-                        <div class="panel profile-panel">
-                            <div class="panel-head">
-                                <span class="panel-icon"><svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="7" r="3.5" stroke="currentColor" stroke-width="1.7"/><path d="M3 18C3 14 6.1 11.5 10 11.5C13.9 11.5 17 14 17 18" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span>
-                                <h3>Personal Information</h3>
-                            </div>
+                        <div class="panel profile-panel"><div class="panel-head"><span class="panel-icon"><svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="7" r="3.5" stroke="currentColor" stroke-width="1.7"/><path d="M3 18C3 14 6.1 11.5 10 11.5C13.9 11.5 17 14 17 18" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span><h3>Personal Information</h3></div>
                             <div class="info-grid">
                                 <div class="info-row"><span class="info-label">Full Name</span><span class="info-value" id="pi-fullname">Juana dela Cruz</span></div>
                                 <div class="info-row"><span class="info-label">Date of Birth</span><span class="info-value" id="pi-dob">March 14, 1988</span></div>
@@ -268,13 +386,7 @@
                                 <div class="info-row"><span class="info-label">Home Address</span><span class="info-value" id="pi-address">Blk 4 Lot 12, Sampaguita St., Brgy. San Isidro, Calabarzon</span></div>
                             </div>
                         </div>
-
-                        <!-- Contact Details -->
-                        <div class="panel profile-panel">
-                            <div class="panel-head">
-                                <span class="panel-icon"><svg viewBox="0 0 20 20" fill="none"><path d="M3 5C3 4.4 3.4 4 4 4H7.2L8.6 7.4L6.8 8.8C7.7 10.6 9.4 12.3 11.2 13.2L12.6 11.4L16 12.8V16C16 16.6 15.6 17 15 17C8.4 17 3 11.6 3 5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg></span>
-                                <h3>Contact Details</h3>
-                            </div>
+                        <div class="panel profile-panel"><div class="panel-head"><span class="panel-icon"><svg viewBox="0 0 20 20" fill="none"><path d="M3 5C3 4.4 3.4 4 4 4H7.2L8.6 7.4L6.8 8.8C7.7 10.6 9.4 12.3 11.2 13.2L12.6 11.4L16 12.8V16C16 16.6 15.6 17 15 17C8.4 17 3 11.6 3 5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg></span><h3>Contact Details</h3></div>
                             <div class="info-grid">
                                 <div class="info-row"><span class="info-label">Mobile</span><span class="info-value" id="cd-mobile">+63 917 234 5678</span></div>
                                 <div class="info-row"><span class="info-label">Email</span><span class="info-value" id="cd-email">j.cruz@osca.gov.ph</span></div>
@@ -282,13 +394,7 @@
                                 <div class="info-row"><span class="info-label">Emergency Contact</span><span class="info-value" id="cd-emergency">Maria Cruz — +63 918 876 5432</span></div>
                             </div>
                         </div>
-
-                        <!-- Employment Details -->
-                        <div class="panel profile-panel">
-                            <div class="panel-head">
-                                <span class="panel-icon"><svg viewBox="0 0 20 20" fill="none"><rect x="2" y="6" width="16" height="12" rx="1.5" stroke="currentColor" stroke-width="1.7"/><path d="M6 6V5C6 3.9 6.9 3 8 3H12C13.1 3 14 3.9 14 5V6" stroke="currentColor" stroke-width="1.7"/><path d="M2 11H18" stroke="currentColor" stroke-width="1.7"/></svg></span>
-                                <h3>Employment Details</h3>
-                            </div>
+                        <div class="panel profile-panel"><div class="panel-head"><span class="panel-icon"><svg viewBox="0 0 20 20" fill="none"><rect x="2" y="6" width="16" height="12" rx="1.5" stroke="currentColor" stroke-width="1.7"/><path d="M6 6V5C6 3.9 6.9 3 8 3H12C13.1 3 14 3.9 14 5V6" stroke="currentColor" stroke-width="1.7"/><path d="M2 11H18" stroke="currentColor" stroke-width="1.7"/></svg></span><h3>Employment Details</h3></div>
                             <div class="info-grid">
                                 <div class="info-row"><span class="info-label">Employee ID</span><span class="info-value" id="ed-empid">EMP-2019-0042</span></div>
                                 <div class="info-row"><span class="info-label">Position</span><span class="info-value" id="ed-position">Field Officer I</span></div>
@@ -299,13 +405,7 @@
                                 <div class="info-row"><span class="info-label">Assigned Barangays</span><span class="info-value" id="ed-barangays">Brgy. San Isidro, Brgy. Maligaya, Brgy. Bagong Pook</span></div>
                             </div>
                         </div>
-
-                        <!-- Account & Access -->
-                        <div class="panel profile-panel">
-                            <div class="panel-head">
-                                <span class="panel-icon"><svg viewBox="0 0 20 20" fill="none"><rect x="4" y="9" width="12" height="9" rx="1.5" stroke="currentColor" stroke-width="1.7"/><path d="M7 9V6.5C7 4.6 8.3 3 10 3C11.7 3 13 4.6 13 6.5V9" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><circle cx="10" cy="13.5" r="1.2" fill="currentColor"/></svg></span>
-                                <h3>Account &amp; Access</h3>
-                            </div>
+                        <div class="panel profile-panel"><div class="panel-head"><span class="panel-icon"><svg viewBox="0 0 20 20" fill="none"><rect x="4" y="9" width="12" height="9" rx="1.5" stroke="currentColor" stroke-width="1.7"/><path d="M7 9V6.5C7 4.6 8.3 3 10 3C11.7 3 13 4.6 13 6.5V9" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><circle cx="10" cy="13.5" r="1.2" fill="currentColor"/></svg></span><h3>Account &amp; Access</h3></div>
                             <div class="info-grid">
                                 <div class="info-row"><span class="info-label">OSCA ID</span><span class="info-value" id="aa-oscaid">OSCA-2026-00482</span></div>
                                 <div class="info-row"><span class="info-label">Role</span><span class="info-value" id="aa-role">Staff</span></div>
@@ -313,111 +413,34 @@
                                 <div class="info-row"><span class="info-label">Last Login</span><span class="info-value" id="aa-lastlogin">Today, 8:12 AM</span></div>
                                 <div class="info-row"><span class="info-label">Account Status</span><span class="info-value"><span class="status-chip active" id="aa-status">Active</span></span></div>
                             </div>
-                            <div class="panel-action-row">
-                                <button class="action-link-btn" id="change-password-btn">Change Password</button>
-                            </div>
+                            <div class="panel-action-row"><button class="action-link-btn" id="change-password-btn">Change Password</button></div>
                         </div>
-
-                    </div><!-- /profile-grid -->
-
-                </div><!-- /profile-view-mode -->
-
-                <!-- EDIT MODE: form panels -->
-                <div id="profile-edit-mode" class="hidden">
-
-                    <div class="edit-mode-banner">
-                        <svg viewBox="0 0 20 20" fill="none"><path d="M13.5 3.5L16.5 6.5L7 16H4V13L13.5 3.5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
-                        You are editing your profile. Changes will be saved when you click <strong>Save Changes</strong>.
                     </div>
-
+                </div>
+                <div id="profile-edit-mode" class="hidden">
+                    <div class="edit-mode-banner"><svg viewBox="0 0 20 20" fill="none"><path d="M13.5 3.5L16.5 6.5L7 16H4V13L13.5 3.5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>You are editing your profile. Changes will be saved when you click <strong>Save Changes</strong>.</div>
                     <div class="profile-grid">
-
-                        <!-- Edit: Personal Information -->
-                        <div class="panel profile-panel">
-                            <div class="panel-head">
-                                <span class="panel-icon"><svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="7" r="3.5" stroke="currentColor" stroke-width="1.7"/><path d="M3 18C3 14 6.1 11.5 10 11.5C13.9 11.5 17 14 17 18" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span>
-                                <h3>Personal Information</h3>
-                            </div>
+                        <div class="panel profile-panel"><div class="panel-head"><span class="panel-icon"><svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="7" r="3.5" stroke="currentColor" stroke-width="1.7"/><path d="M3 18C3 14 6.1 11.5 10 11.5C13.9 11.5 17 14 17 18" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span><h3>Personal Information</h3></div>
                             <div class="edit-field-grid">
-                                <div class="edit-field full-width" id="ef-fullname-field">
-                                    <label for="ef-fullname">Full Name</label>
-                                    <input type="text" id="ef-fullname" placeholder="Full legal name">
-                                    <span class="field-error">Full name is required.</span>
-                                </div>
-                                <div class="edit-field">
-                                    <label for="ef-dob">Date of Birth</label>
-                                    <input type="date" id="ef-dob">
-                                </div>
-                                <div class="edit-field">
-                                    <label for="ef-gender">Gender</label>
-                                    <select id="ef-gender">
-                                        <option value="Female">Female</option>
-                                        <option value="Male">Male</option>
-                                        <option value="Prefer not to say">Prefer not to say</option>
-                                    </select>
-                                </div>
-                                <div class="edit-field">
-                                    <label for="ef-civil">Civil Status</label>
-                                    <select id="ef-civil">
-                                        <option value="Single">Single</option>
-                                        <option value="Married">Married</option>
-                                        <option value="Widowed">Widowed</option>
-                                        <option value="Separated">Separated</option>
-                                    </select>
-                                </div>
-                                <div class="edit-field">
-                                    <label for="ef-nationality">Nationality</label>
-                                    <input type="text" id="ef-nationality" placeholder="Nationality">
-                                </div>
-                                <div class="edit-field full-width">
-                                    <label for="ef-address">Home Address</label>
-                                    <textarea id="ef-address" rows="2" placeholder="Complete home address"></textarea>
-                                </div>
+                                <div class="edit-field full-width" id="ef-fullname-field"><label for="ef-fullname">Full Name</label><input type="text" id="ef-fullname" placeholder="Full legal name"><span class="field-error">Full name is required.</span></div>
+                                <div class="edit-field"><label for="ef-dob">Date of Birth</label><input type="date" id="ef-dob"></div>
+                                <div class="edit-field"><label for="ef-gender">Gender</label><select id="ef-gender"><option>Female</option><option>Male</option><option>Prefer not to say</option></select></div>
+                                <div class="edit-field"><label for="ef-civil">Civil Status</label><select id="ef-civil"><option>Single</option><option>Married</option><option>Widowed</option><option>Separated</option></select></div>
+                                <div class="edit-field"><label for="ef-nationality">Nationality</label><input type="text" id="ef-nationality" placeholder="Nationality"></div>
+                                <div class="edit-field full-width"><label for="ef-address">Home Address</label><textarea id="ef-address" rows="2" placeholder="Complete home address"></textarea></div>
                             </div>
                         </div>
-
-                        <!-- Edit: Contact Details -->
-                        <div class="panel profile-panel">
-                            <div class="panel-head">
-                                <span class="panel-icon"><svg viewBox="0 0 20 20" fill="none"><path d="M3 5C3 4.4 3.4 4 4 4H7.2L8.6 7.4L6.8 8.8C7.7 10.6 9.4 12.3 11.2 13.2L12.6 11.4L16 12.8V16C16 16.6 15.6 17 15 17C8.4 17 3 11.6 3 5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg></span>
-                                <h3>Contact Details</h3>
-                            </div>
+                        <div class="panel profile-panel"><div class="panel-head"><span class="panel-icon"><svg viewBox="0 0 20 20" fill="none"><path d="M3 5C3 4.4 3.4 4 4 4H7.2L8.6 7.4L6.8 8.8C7.7 10.6 9.4 12.3 11.2 13.2L12.6 11.4L16 12.8V16C16 16.6 15.6 17 15 17C8.4 17 3 11.6 3 5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg></span><h3>Contact Details</h3></div>
                             <div class="edit-field-grid">
-                                <div class="edit-field" id="ef-mobile-field">
-                                    <label for="ef-mobile">Mobile Number</label>
-                                    <input type="tel" id="ef-mobile" placeholder="+63 9XX XXX XXXX">
-                                    <span class="field-error">Mobile number is required.</span>
-                                </div>
-                                <div class="edit-field" id="ef-email-field">
-                                    <label for="ef-email">Email Address</label>
-                                    <input type="email" id="ef-email" placeholder="email@osca.gov.ph">
-                                    <span class="field-error">Enter a valid email address.</span>
-                                </div>
-                                <div class="edit-field">
-                                    <label for="ef-office">Office Phone</label>
-                                    <input type="tel" id="ef-office" placeholder="(XXX) XXX-XXXX">
-                                </div>
-                                <div class="edit-field">
-                                    <label for="ef-emergency-name">Emergency Contact Name</label>
-                                    <input type="text" id="ef-emergency-name" placeholder="Full name">
-                                </div>
-                                <div class="edit-field full-width">
-                                    <label for="ef-emergency-phone">Emergency Contact Number</label>
-                                    <input type="tel" id="ef-emergency-phone" placeholder="+63 9XX XXX XXXX">
-                                </div>
+                                <div class="edit-field" id="ef-mobile-field"><label for="ef-mobile">Mobile Number</label><input type="tel" id="ef-mobile" placeholder="+63 9XX XXX XXXX"><span class="field-error">Mobile number is required.</span></div>
+                                <div class="edit-field" id="ef-email-field"><label for="ef-email">Email Address</label><input type="email" id="ef-email" placeholder="email@osca.gov.ph"><span class="field-error">Enter a valid email address.</span></div>
+                                <div class="edit-field"><label for="ef-office">Office Phone</label><input type="tel" id="ef-office" placeholder="(XXX) XXX-XXXX"></div>
+                                <div class="edit-field"><label for="ef-emergency-name">Emergency Contact Name</label><input type="text" id="ef-emergency-name" placeholder="Full name"></div>
+                                <div class="edit-field full-width"><label for="ef-emergency-phone">Emergency Contact Number</label><input type="tel" id="ef-emergency-phone" placeholder="+63 9XX XXX XXXX"></div>
                             </div>
                         </div>
-
-                        <!-- Edit: Employment (read-only notice) -->
-                        <div class="panel profile-panel">
-                            <div class="panel-head">
-                                <span class="panel-icon"><svg viewBox="0 0 20 20" fill="none"><rect x="2" y="6" width="16" height="12" rx="1.5" stroke="currentColor" stroke-width="1.7"/><path d="M6 6V5C6 3.9 6.9 3 8 3H12C13.1 3 14 3.9 14 5V6" stroke="currentColor" stroke-width="1.7"/><path d="M2 11H18" stroke="currentColor" stroke-width="1.7"/></svg></span>
-                                <h3>Employment Details</h3>
-                            </div>
-                            <div class="readonly-notice">
-                                <svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="7.5" stroke="currentColor" stroke-width="1.6"/><path d="M10 9V13M10 7V7.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-                                Employment details are managed by your HR administrator and cannot be edited here. Contact your supervisor for any corrections.
-                            </div>
+                        <div class="panel profile-panel"><div class="panel-head"><span class="panel-icon"><svg viewBox="0 0 20 20" fill="none"><rect x="2" y="6" width="16" height="12" rx="1.5" stroke="currentColor" stroke-width="1.7"/><path d="M6 6V5C6 3.9 6.9 3 8 3H12C13.1 3 14 3.9 14 5V6" stroke="currentColor" stroke-width="1.7"/><path d="M2 11H18" stroke="currentColor" stroke-width="1.7"/></svg></span><h3>Employment Details</h3></div>
+                            <div class="readonly-notice"><svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="7.5" stroke="currentColor" stroke-width="1.6"/><path d="M10 9V13M10 7V7.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>Employment details are managed by your HR administrator and cannot be edited here.</div>
                             <div class="info-grid">
                                 <div class="info-row"><span class="info-label">Employee ID</span><span class="info-value" id="ro-empid">EMP-2019-0042</span></div>
                                 <div class="info-row"><span class="info-label">Position</span><span class="info-value" id="ro-position">Field Officer I</span></div>
@@ -427,42 +450,141 @@
                                 <div class="info-row"><span class="info-label">Supervisor</span><span class="info-value" id="ro-supervisor">Engr. Ramon Dela Rosa</span></div>
                             </div>
                         </div>
-
-                        <!-- Edit: Account (read-only + change password) -->
-                        <div class="panel profile-panel">
-                            <div class="panel-head">
-                                <span class="panel-icon"><svg viewBox="0 0 20 20" fill="none"><rect x="4" y="9" width="12" height="9" rx="1.5" stroke="currentColor" stroke-width="1.7"/><path d="M7 9V6.5C7 4.6 8.3 3 10 3C11.7 3 13 4.6 13 6.5V9" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><circle cx="10" cy="13.5" r="1.2" fill="currentColor"/></svg></span>
-                                <h3>Account &amp; Access</h3>
-                            </div>
-                            <div class="readonly-notice">
-                                <svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="7.5" stroke="currentColor" stroke-width="1.6"/><path d="M10 9V13M10 7V7.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-                                Account credentials and access levels are managed by your system administrator.
-                            </div>
+                        <div class="panel profile-panel"><div class="panel-head"><span class="panel-icon"><svg viewBox="0 0 20 20" fill="none"><rect x="4" y="9" width="12" height="9" rx="1.5" stroke="currentColor" stroke-width="1.7"/><path d="M7 9V6.5C7 4.6 8.3 3 10 3C11.7 3 13 4.6 13 6.5V9" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><circle cx="10" cy="13.5" r="1.2" fill="currentColor"/></svg></span><h3>Account &amp; Access</h3></div>
+                            <div class="readonly-notice"><svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="7.5" stroke="currentColor" stroke-width="1.6"/><path d="M10 9V13M10 7V7.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>Account credentials and access levels are managed by your system administrator.</div>
                             <div class="info-grid">
                                 <div class="info-row"><span class="info-label">OSCA ID</span><span class="info-value" id="ro-oscaid">OSCA-2026-00482</span></div>
                                 <div class="info-row"><span class="info-label">Role</span><span class="info-value" id="ro-role">Staff</span></div>
                                 <div class="info-row"><span class="info-label">Access Level</span><span class="info-value" id="ro-access">Field Operations</span></div>
                                 <div class="info-row"><span class="info-label">Account Status</span><span class="info-value"><span class="status-chip active" id="ro-status">Active</span></span></div>
                             </div>
-                            <div class="panel-action-row">
-                                <button class="action-link-btn" id="change-password-btn-edit">Change Password</button>
-                            </div>
+                            <div class="panel-action-row"><button class="action-link-btn" id="change-password-btn-edit">Change Password</button></div>
                         </div>
-
-                    </div><!-- /profile-grid edit -->
-
-                    <!-- Edit action bar -->
+                    </div>
                     <div class="edit-action-bar">
                         <button class="edit-cancel-btn" id="edit-cancel-btn">Cancel</button>
-                        <button class="edit-save-btn" id="edit-save-btn">
-                            <svg viewBox="0 0 20 20" fill="none"><path d="M4 10.5L8 14.5L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                            Save Changes
-                        </button>
+                        <button class="edit-save-btn" id="edit-save-btn"><svg viewBox="0 0 20 20" fill="none"><path d="M4 10.5L8 14.5L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Save Changes</button>
                     </div>
+                </div>
+            </div>
 
-                </div><!-- /profile-edit-mode -->
+            <!-- ===================== SENIOR PROFILE DETAIL (sub-page) ===================== -->
+            <div id="senior-profile-content" class="tab-content hidden">
+                <header class="content-header">
+                    <div><h1>Senior Citizen Profile Information</h1></div>
+                    <button class="profile-edit-btn" id="senior-profile-edit-btn"><svg viewBox="0 0 20 20" fill="none"><path d="M13.5 3.5L16.5 6.5L7 16H4V13L13.5 3.5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>EDIT</button>
+                </header>
+                <div class="senior-profile-layout">
+                    <div class="senior-profile-left">
+                        <div class="senior-profile-section">
+                            <h3 class="sp-section-title">PERSONAL INFORMATION</h3>
+                            <div class="sp-field"><label>Full Name:</label><input type="text" id="sp-fullname" class="sp-input" readonly></div>
+                            <div class="sp-field"><label>Date of Birth:</label><input type="text" id="sp-dob" class="sp-input" readonly></div>
+                            <div class="sp-field"><label>Age:</label><input type="text" id="sp-age" class="sp-input" readonly></div>
+                            <div class="sp-field"><label>Sex:</label><input type="text" id="sp-sex" class="sp-input" readonly></div>
+                            <div class="sp-field"><label>Civil Status:</label><input type="text" id="sp-civil" class="sp-input" readonly></div>
+                            <div class="sp-field"><label>Contact Number:</label><input type="text" id="sp-contact" class="sp-input" readonly></div>
+                            <div class="sp-field"><label>Senior ID:</label><input type="text" id="sp-seniorid" class="sp-input" readonly></div>
+                            <div class="sp-field"><label>Government ID:</label><input type="text" id="sp-govid" class="sp-input" readonly></div>
+                        </div>
+                        <div class="senior-profile-section">
+                            <h3 class="sp-section-title">LIVING SITUATION</h3>
+                            <div class="sp-field"><label>Barangay:</label><input type="text" id="sp-barangay" class="sp-input" readonly></div>
+                            <div class="sp-field"><label>Living Arrangement:</label><input type="text" id="sp-living" class="sp-input" readonly></div>
+                            <div class="sp-field"><label>Full Address:</label><input type="text" id="sp-address" class="sp-input" readonly></div>
+                            <div class="sp-field"><label>Representative:</label><input type="text" id="sp-rep" class="sp-input" readonly></div>
+                        </div>
+                        <div class="senior-profile-section">
+                            <h3 class="sp-section-title">HEALTH AND MOBILITY</h3>
+                            <div class="sp-field"><label>Health Condition:</label><input type="text" id="sp-health" class="sp-input" readonly></div>
+                            <div class="sp-field"><label>Mobility Status:</label><input type="text" id="sp-mobility" class="sp-input" readonly></div>
+                            <div class="sp-field"><label>Last Home Visit:</label><input type="text" id="sp-lasthv" class="sp-input" readonly></div>
+                            <div class="sp-field"><label>Medical Equipment:</label><input type="text" id="sp-equipment" class="sp-input" readonly></div>
+                            <div class="sp-field"><label>Account Status:</label><input type="text" id="sp-accstatus" class="sp-input" readonly></div>
+                        </div>
+                        <div class="senior-profile-section">
+                            <h3 class="sp-section-title">VULNERABILITY ASSESSMENT</h3>
+                            <div class="sp-field"><label>Vulnerability Score:</label><input type="text" id="sp-vulnscore" class="sp-input" readonly></div>
+                            <div class="sp-field"><label>Priority Level:</label><input type="text" id="sp-prioritylevel" class="sp-input" readonly></div>
+                        </div>
+                    </div>
+                    <div class="senior-profile-right">
+                        <div class="sp-photo-box"><p class="sp-photo-label">SENIOR PICTURE</p><div class="sp-photo-placeholder" id="sp-photo-senior"></div></div>
+                        <div class="sp-photo-box"><p class="sp-photo-label">SENIOR GOVERNMENT ID</p><div class="sp-photo-placeholder" id="sp-photo-govid"></div></div>
+                        <div class="sp-photo-box"><p class="sp-photo-label">SENIOR OSCA ID PICTURE</p><div class="sp-photo-placeholder" id="sp-photo-oscaid"></div></div>
+                        <div class="sp-photo-box"><p class="sp-photo-label">REPRESENTATIVE GOVERNMENT ID</p><div class="sp-photo-placeholder" id="sp-photo-repid"></div></div>
+                    </div>
+                </div>
+                <div class="sp-action-bar">
+                    <button class="sp-back-btn" id="sp-back-btn">← Back</button>
+                    <div style="display:flex;gap:10px;">
+                        <button class="sp-delete-btn" id="sp-delete-btn">DELETE</button>
+                        <button class="sp-save-btn" id="sp-save-btn">SAVE</button>
+                    </div>
+                </div>
+            </div>
 
-            </div><!-- /profile-content -->
+            <!-- ===================== PHOTO VERIFICATION DETAIL (sub-page) ===================== -->
+            <div id="photo-detail-content" class="tab-content hidden">
+                <header class="content-header">
+                    <div><h1>Verification Details</h1></div>
+                </header>
+                <div class="vd-layout">
+                    <div class="vd-left">
+                        <div class="panel vd-senior-info">
+                            <h3>Senior Citizen Information</h3>
+                            <div class="vd-info-row">
+                                <div class="vd-photo-box" id="vd-photo"></div>
+                                <div class="vd-fields">
+                                    <div class="vd-field"><span class="vd-label">Name:</span><span class="vd-val" id="vd-name"></span></div>
+                                    <div class="vd-field"><span class="vd-label">OSCA ID:</span><span class="vd-val" id="vd-oscaid"></span></div>
+                                    <div class="vd-field"><span class="vd-label">Age:</span><span class="vd-val" id="vd-age"></span></div>
+                                    <div class="vd-field"><span class="vd-label">Barangay:</span><span class="vd-val" id="vd-barangay"></span></div>
+                                    <div class="vd-field"><span class="vd-label">Registered:</span><span class="vd-val" id="vd-registered"></span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel">
+                            <h3>Photo Comparison</h3>
+                            <div class="vd-photo-compare">
+                                <div class="vd-compare-box"><div class="vd-compare-photo" id="vd-reg-photo"></div><p>Registered Photo</p></div>
+                                <div class="vd-compare-box"><div class="vd-compare-photo" id="vd-live-photo"></div><p>Live Capture Photo</p></div>
+                            </div>
+                        </div>
+                        <div class="panel">
+                            <h3>Verification History</h3>
+                            <div class="data-table-wrap">
+                                <table class="data-table" id="vd-history-table">
+                                    <thead><tr><th></th><th></th><th style="text-align:right"><button class="notif-view-btn" style="font-size:0.75rem;">View All</button></th><th></th></tr></thead>
+                                    <tbody id="vd-history-tbody"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="vd-right">
+                        <div class="panel vd-score-panel">
+                            <h3>Match Score</h3>
+                            <div class="vd-score-bar-wrap">
+                                <div class="vd-score-bar"><div class="vd-score-fill" id="vd-score-fill"></div></div>
+                                <span class="vd-score-pct" id="vd-score-pct">62%</span>
+                            </div>
+                            <p class="vd-score-label" id="vd-score-label">High Confidence Match</p>
+                            <div class="vd-decision-row"><span>System Decision:</span><span class="vd-decision-badge" id="vd-decision">Pending</span></div>
+                            <div class="vd-action-section">
+                                <p class="vd-action-label">Staff Action:</p>
+                                <div class="vd-action-btns">
+                                    <button class="vd-approve-btn" id="vd-approve">Approve</button>
+                                    <button class="vd-reject-btn" id="vd-reject">Reject</button>
+                                    <button class="vd-recapture-btn" id="vd-recapture">Request Recapture</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sp-action-bar" style="margin-top:24px;">
+                    <button class="sp-back-btn" id="vd-back-btn">← Back</button>
+                </div>
+            </div>
 
         </main>
     </div>
@@ -471,55 +593,30 @@
 <!-- ====== CHANGE PASSWORD MODAL ====== -->
 <div id="password-modal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="pw-modal-title">
     <div class="modal-card">
-        <div class="modal-header">
-            <h3 id="pw-modal-title">Change Password</h3>
-            <button class="modal-close" id="modal-close" aria-label="Close">
-                <svg viewBox="0 0 20 20" fill="none"><path d="M5 5L15 15M15 5L5 15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-            </button>
-        </div>
+        <div class="modal-header"><h3 id="pw-modal-title">Change Password</h3><button class="modal-close" id="modal-close" aria-label="Close"><svg viewBox="0 0 20 20" fill="none"><path d="M5 5L15 15M15 5L5 15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button></div>
         <div class="modal-body">
-            <div class="input-group">
-                <label for="curr-password">Current Password</label>
-                <input type="password" id="curr-password" placeholder="Enter current password">
-            </div>
-            <div class="input-group">
-                <label for="new-password">New Password</label>
-                <input type="password" id="new-password" placeholder="At least 8 characters">
-            </div>
-            <div class="input-group">
-                <label for="confirm-password">Confirm New Password</label>
-                <input type="password" id="confirm-password" placeholder="Repeat new password">
-            </div>
+            <div class="input-group"><label for="curr-password">Current Password</label><input type="password" id="curr-password" placeholder="Enter current password"></div>
+            <div class="input-group"><label for="new-password">New Password</label><input type="password" id="new-password" placeholder="At least 8 characters"></div>
+            <div class="input-group"><label for="confirm-password">Confirm New Password</label><input type="password" id="confirm-password" placeholder="Repeat new password"></div>
             <p class="modal-field-error" id="pw-modal-error"></p>
         </div>
-        <div class="modal-footer">
-            <button class="modal-cancel" id="modal-cancel">Cancel</button>
-            <button class="modal-submit" id="modal-submit">Update Password</button>
-        </div>
+        <div class="modal-footer"><button class="modal-cancel" id="modal-cancel">Cancel</button><button class="modal-submit" id="modal-submit">Update Password</button></div>
     </div>
 </div>
 
-<!-- ====== LOGOUT CONFIRMATION MODAL ====== -->
+<!-- ====== LOGOUT MODAL ====== -->
 <div id="logout-modal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="logout-modal-title">
     <div class="modal-card modal-card-sm">
         <div class="modal-header">
-            <div class="modal-icon-wrap danger">
-                <svg viewBox="0 0 24 24" fill="none"><path d="M10 12H19M16 9L19 12L16 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M13 5H6C4.9 5 4 5.9 4 7V17C4 18.1 4.9 19 6 19H13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-            </div>
-            <div>
-                <h3 id="logout-modal-title">Log Out</h3>
-                <p class="modal-sub">Are you sure you want to end your session?</p>
-            </div>
+            <div class="modal-icon-wrap danger"><svg viewBox="0 0 24 24" fill="none"><path d="M10 12H19M16 9L19 12L16 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M13 5H6C4.9 5 4 5.9 4 7V17C4 18.1 4.9 19 6 19H13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+            <div><h3 id="logout-modal-title">Log Out</h3><p class="modal-sub">Are you sure you want to end your session?</p></div>
         </div>
-        <div class="modal-footer">
-            <button class="modal-cancel" id="logout-cancel">Stay Logged In</button>
-            <button class="modal-submit danger" id="logout-confirm">Yes, Log Out</button>
-        </div>
+        <div class="modal-footer"><button class="modal-cancel" id="logout-cancel">Stay Logged In</button><button class="modal-submit danger" id="logout-confirm">Yes, Log Out</button></div>
     </div>
 </div>
 
-<!-- ====== SAVE SUCCESS TOAST ====== -->
-<div id="save-toast" class="toast hidden"><svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="7.5" fill="var(--green-ok)"/><path d="M6.5 10.5L9 13L13.5 8" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span id="save-toast-text">Profile updated successfully.</span></div>
+<!-- ====== TOAST ====== -->
+<div id="save-toast" class="toast hidden"><svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="7.5" fill="var(--green-ok)"/><path d="M6.5 10.5L9 13L13.5 8" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span id="save-toast-text">Saved successfully.</span></div>
 
 <script src="script.js"></script>
 </body>
