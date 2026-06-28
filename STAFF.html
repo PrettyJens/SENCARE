@@ -90,27 +90,21 @@
             <!-- DASHBOARD -->
             <div id="dashboard-content" class="tab-content">
                 <header class="content-header">
-                    <div><h1>Good afternoon, Juana</h1><p>Here's what's happening today, Thursday, June 18.</p></div>
-                    <div class="header-date-pill">🕒 2:45 PM</div>
+                    <div>
+                        <h1 id="dash-greeting">Good afternoon</h1>
+                        <p id="dash-subtitle">Here's what's happening today.</p>
+                    </div>
+                    <div class="header-date-pill" id="dash-time">🕒 --:-- --</div>
                 </header>
                 <section class="metrics-grid">
-                    <div class="metric-card"><span class="metric-icon">📋</span><span class="count">248</span><span class="label">Active Requests</span><span class="trend up">↑ 14 since yesterday</span></div>
-                    <div class="metric-card"><span class="metric-icon">👴</span><span class="count">19,856</span><span class="label">Registered Seniors</span><span class="trend">in this LGU</span></div>
-                    <div class="metric-card"><span class="metric-icon">🔷</span><span class="count">37</span><span class="label">Priority Cases</span><span class="trend warn">Needs review</span></div>
-                    <div class="metric-card"><span class="metric-icon">🏠</span><span class="count">9</span><span class="label">Home Visits Today</span><span class="trend">3 completed</span></div>
+                    <div class="metric-card"><span class="metric-icon">📋</span><span class="count" id="dash-total-req">0</span><span class="label">Active Requests</span><span class="trend up" id="dash-req-trend"></span></div>
+                    <div class="metric-card"><span class="metric-icon">👴</span><span class="count" id="dash-seniors">0</span><span class="label">Registered Seniors</span><span class="trend">in this LGU</span></div>
+                    <div class="metric-card"><span class="metric-icon">🔷</span><span class="count" id="dash-priority">0</span><span class="label">Priority Cases</span><span class="trend warn">Needs review</span></div>
+                    <div class="metric-card"><span class="metric-icon">🏠</span><span class="count" id="dash-hv">0</span><span class="label">Home Visits Today</span><span class="trend" id="dash-hv-trend"></span></div>
                 </section>
                 <section class="panel-row">
-                    <div class="panel"><h3>Recent requests</h3><ul class="simple-list">
-                        <li><span class="dot dot-amber"></span> Pension claim — Roberto Santos <span class="time">10 min ago</span></li>
-                        <li><span class="dot dot-green"></span> ID renewal — Lourdes Reyes <span class="time">42 min ago</span></li>
-                        <li><span class="dot dot-amber"></span> Medical assistance — Pacita Lim <span class="time">1 hr ago</span></li>
-                        <li><span class="dot dot-green"></span> Burial assistance — Elena Tan <span class="time">3 hrs ago</span></li>
-                    </ul></div>
-                    <div class="panel"><h3>Today's home visits</h3><ul class="simple-list">
-                        <li><span class="dot dot-blue"></span> Brgy. San Isidro — 3 households <span class="time">9:00 AM</span></li>
-                        <li><span class="dot dot-blue"></span> Brgy. Maligaya — 2 households <span class="time">1:30 PM</span></li>
-                        <li><span class="dot dot-blue"></span> Brgy. Bagong Pook — 4 households <span class="time">4:00 PM</span></li>
-                    </ul></div>
+                    <div class="panel"><h3>Recent requests</h3><ul class="simple-list" id="dash-recent-req"><li><span style="color:var(--ink-faint);font-size:0.85rem;">No requests yet.</span></li></ul></div>
+                    <div class="panel"><h3>Today's home visits</h3><ul class="simple-list" id="dash-hv-list"><li><span style="color:var(--ink-faint);font-size:0.85rem;">No visits scheduled yet.</span></li></ul></div>
                 </section>
             </div>
 
@@ -120,10 +114,10 @@
                     <div><h1>Assistance Request Management</h1><p>Review all incoming requests and make decisions (approve, reject, pending)</p></div>
                 </header>
                 <section class="metrics-grid">
-                    <div class="metric-card"><span class="count">248</span><span class="label">Requests</span></div>
-                    <div class="metric-card"><span class="count">19</span><span class="label">Pending</span></div>
-                    <div class="metric-card"><span class="count">30</span><span class="label">Approved</span></div>
-                    <div class="metric-card"><span class="count">8</span><span class="label">Rejected</span></div>
+                    <div class="metric-card"><span class="count" id="rm-total">0</span><span class="label">Total Requests</span></div>
+                    <div class="metric-card"><span class="count" id="rm-pending">0</span><span class="label">Pending</span></div>
+                    <div class="metric-card"><span class="count" id="rm-approved">0</span><span class="label">Approved</span></div>
+                    <div class="metric-card"><span class="count" id="rm-rejected">0</span><span class="label">Rejected</span></div>
                 </section>
                 <div class="panel">
                     <div class="section-toolbar">
@@ -148,12 +142,14 @@
                 <header class="content-header">
                     <div><h1>Senior Citizen Information Management</h1><p>Collect senior citizen information for vulnerability assessment</p></div>
                 </header>
+                <!-- Live-updated stat cards -->
                 <section class="metrics-grid">
-                    <div class="metric-card"><span class="count">19,856</span><span class="label">Total Registered</span></div>
-                    <div class="metric-card"><span class="count">8,151</span><span class="label">Total Male</span></div>
-                    <div class="metric-card"><span class="count">11,705</span><span class="label">Total Female</span></div>
-                    <div class="metric-card"><span class="count">19,856</span><span class="label">Total Beneficiaries</span></div>
+                    <div class="metric-card"><span class="count" id="sc-total">0</span><span class="label">Total Registered</span></div>
+                    <div class="metric-card"><span class="count" id="sc-male">0</span><span class="label">Total Male</span></div>
+                    <div class="metric-card"><span class="count" id="sc-female">0</span><span class="label">Total Female</span></div>
+                    <div class="metric-card"><span class="count" id="sc-beneficiaries">0</span><span class="label">Total Beneficiaries</span></div>
                 </section>
+
                 <!-- Advanced Filters -->
                 <div class="panel filter-panel" id="senior-filter-panel">
                     <div class="filter-panel-header">
@@ -163,15 +159,85 @@
                     <div id="senior-filter-body">
                         <input type="text" class="filter-search-big" id="senior-search" placeholder="Search by Senior ID or Name...">
                         <div class="filter-grid">
-                            <div class="filter-field"><label>BARANGAY</label><input type="text" id="sf-barangay" placeholder=""></div>
-                            <div class="filter-field"><label>AGE</label><input type="text" id="sf-age" placeholder=""></div>
-                            <div class="filter-field"><label>SEX</label><input type="text" id="sf-sex" placeholder=""></div>
-                            <div class="filter-field"><label>CIVIL STATUS</label><input type="text" id="sf-civil" placeholder=""></div>
-                            <div class="filter-field"><label>LIVING ARRANGEMENT</label><input type="text" id="sf-living" placeholder=""></div>
-                            <div class="filter-field"><label>HEALTH CONDITION</label><input type="text" id="sf-health" placeholder=""></div>
-                            <div class="filter-field"><label>MOBILITY STATUS</label><input type="text" id="sf-mobility" placeholder=""></div>
-                            <div class="filter-field"><label>PRIORITY LEVEL</label><input type="text" id="sf-priority" placeholder=""></div>
-                            <div class="filter-field"><label>STATUS</label><input type="text" id="sf-status" placeholder=""></div>
+                            <div class="filter-field">
+                                <label>BARANGAY</label>
+                                <select id="sf-barangay" class="filter-select">
+                                    <option value="">All Barangays</option>
+                                </select>
+                            </div>
+                            <div class="filter-field">
+                                <label>AGE RANGE</label>
+                                <select id="sf-age" class="filter-select">
+                                    <option value="">All Ages</option>
+                                    <option value="60-69">60–69</option>
+                                    <option value="70-79">70–79</option>
+                                    <option value="80+">80 and above</option>
+                                </select>
+                            </div>
+                            <div class="filter-field">
+                                <label>SEX</label>
+                                <select id="sf-sex" class="filter-select">
+                                    <option value="">All</option>
+                                    <option>Male</option>
+                                    <option>Female</option>
+                                </select>
+                            </div>
+                            <div class="filter-field">
+                                <label>CIVIL STATUS</label>
+                                <select id="sf-civil" class="filter-select">
+                                    <option value="">All</option>
+                                    <option>Single</option>
+                                    <option>Married</option>
+                                    <option>Widowed</option>
+                                    <option>Separated</option>
+                                    <option>Annulled</option>
+                                </select>
+                            </div>
+                            <div class="filter-field">
+                                <label>LIVING ARRANGEMENT</label>
+                                <select id="sf-living" class="filter-select">
+                                    <option value="">All</option>
+                                    <option>With Family</option>
+                                    <option>With Spouse</option>
+                                    <option>Lives Alone</option>
+                                    <option>Care Facility</option>
+                                    <option>With Caregiver</option>
+                                </select>
+                            </div>
+                            <div class="filter-field">
+                                <label>HEALTH CONDITION</label>
+                                <input type="text" id="sf-health" class="filter-text-input" placeholder="e.g. Hypertension">
+                            </div>
+                            <div class="filter-field">
+                                <label>MOBILITY STATUS</label>
+                                <select id="sf-mobility" class="filter-select">
+                                    <option value="">All</option>
+                                    <option>Fully Independent</option>
+                                    <option>Uses Aid (Cane/Walker)</option>
+                                    <option>Wheelchair-Bound</option>
+                                    <option>Bedridden</option>
+                                    <option>Limited Mobility</option>
+                                    <option>Needs Assistance</option>
+                                </select>
+                            </div>
+                            <div class="filter-field">
+                                <label>PRIORITY LEVEL</label>
+                                <select id="sf-priority" class="filter-select">
+                                    <option value="">All</option>
+                                    <option>High</option>
+                                    <option>Medium</option>
+                                    <option>Low</option>
+                                </select>
+                            </div>
+                            <div class="filter-field">
+                                <label>STATUS</label>
+                                <select id="sf-status" class="filter-select">
+                                    <option value="">All</option>
+                                    <option>Active</option>
+                                    <option>Inactive</option>
+                                    <option>Deceased</option>
+                                </select>
+                            </div>
                         </div>
                         <div class="filter-actions">
                             <button class="filter-clear-btn" id="senior-filter-clear">CLEAR ALL</button>
@@ -179,19 +245,39 @@
                         </div>
                     </div>
                 </div>
-                <div class="panel">
+
+                <!-- Table + Sort + Add -->
+                <div class="panel" style="position:relative;">
                     <div class="section-toolbar">
-                        <div class="toolbar-right" style="margin-left:auto">
-                            <button class="toolbar-sort-btn">SORT</button>
+                        <div class="toolbar-right" style="margin-left:auto;position:relative;">
+                            <div class="sort-dropdown-wrap" id="sort-dropdown-wrap">
+                                <button class="toolbar-sort-btn" id="senior-sort-btn">SORT ▾</button>
+                                <div class="sort-dropdown" id="sort-dropdown">
+                                    <button class="sort-option" data-sort="id">Senior ID</button>
+                                    <button class="sort-option" data-sort="age">Age</button>
+                                    <button class="sort-option" data-sort="barangay">Barangay</button>
+                                    <button class="sort-option" data-sort="civil">Civil Status</button>
+                                    <button class="sort-option" data-sort="living">Living Arrangement</button>
+                                    <button class="sort-option" data-sort="health">Health Condition</button>
+                                    <button class="sort-option" data-sort="mobility">Mobility Status</button>
+                                    <button class="sort-option" data-sort="vuln">Vulnerability Score</button>
+                                    <button class="sort-option" data-sort="status">Status</button>
+                                </div>
+                            </div>
                             <button class="toolbar-add-btn" id="senior-add-btn">+ ADD RECORD</button>
                         </div>
                     </div>
                     <div class="data-table-wrap">
                         <table class="data-table senior-table" id="senior-table">
-                            <thead><tr><th>SENIOR</th><th>AGE</th><th>BARANGAY</th><th>CIVIL STATUS</th><th>LIVING</th><th>HEALTH CONDITION</th><th>MOBILITY</th><th>PRIORITY</th><th>VULN. SCORE</th><th>STATUS</th><th>ACTIONS</th></tr></thead>
+                            <thead><tr>
+                                <th>SENIOR</th><th>AGE</th><th>BARANGAY</th><th>CIVIL STATUS</th>
+                                <th>LIVING</th><th>HEALTH CONDITION</th><th>MOBILITY</th>
+                                <th>PRIORITY</th><th>VULN. SCORE</th><th>STATUS</th><th>ACTIONS</th>
+                            </tr></thead>
                             <tbody id="senior-tbody"></tbody>
                         </table>
                     </div>
+                    <p class="senior-empty-msg hidden" id="senior-empty-msg">No records match your filters.</p>
                 </div>
             </div>
 
@@ -201,10 +287,10 @@
                     <div><h1>Senior Citizen Information Management</h1><p>Collect senior citizen information for vulnerability assessment</p></div>
                 </header>
                 <section class="metrics-grid">
-                    <div class="metric-card"><span class="count">19,856</span><span class="label">Total Registered</span></div>
-                    <div class="metric-card"><span class="count">299</span><span class="label">High Priority</span></div>
-                    <div class="metric-card"><span class="count">8,261</span><span class="label">Medium Priority</span></div>
-                    <div class="metric-card"><span class="count">11,296</span><span class="label">Low Priority</span></div>
+                    <div class="metric-card"><span class="count" id="pm-total">0</span><span class="label">Total Registered</span></div>
+                    <div class="metric-card"><span class="count" id="pm-high">0</span><span class="label">High Priority</span></div>
+                    <div class="metric-card"><span class="count" id="pm-medium">0</span><span class="label">Medium Priority</span></div>
+                    <div class="metric-card"><span class="count" id="pm-low">0</span><span class="label">Low Priority</span></div>
                 </section>
                 <div class="panel priority-legend-panel">
                     <p class="priority-legend-title">PRIORITY LEVEL</p>
@@ -227,25 +313,52 @@
                     <div><h1>Home Visit Management</h1><p>Manage and schedule home visits, track their status.</p></div>
                 </header>
                 <section class="metrics-grid">
-                    <div class="metric-card"><span class="count">19,856</span><span class="label">Scheduled Visits</span></div>
-                    <div class="metric-card"><span class="count">299</span><span class="label">Completed</span></div>
-                    <div class="metric-card"><span class="count">8,261</span><span class="label">Missed Visits</span></div>
-                    <div class="metric-card"><span class="count">11,296</span><span class="label">Ongoing Visits</span></div>
+                    <div class="metric-card"><span class="count" id="hv-total">0</span><span class="label">Scheduled Visits</span></div>
+                    <div class="metric-card"><span class="count" id="hv-completed">0</span><span class="label">Completed</span></div>
+                    <div class="metric-card"><span class="count" id="hv-missed">0</span><span class="label">Missed Visits</span></div>
+                    <div class="metric-card"><span class="count" id="hv-ongoing">0</span><span class="label">Ongoing Visits</span></div>
                 </section>
                 <div class="panel filter-panel">
                     <div class="filter-panel-header">
                         <span class="filter-panel-title">Advanced Filters</span>
+                        <button class="filter-collapse-btn" id="hv-filter-toggle">Collapse</button>
                     </div>
-                    <div>
-                        <input type="text" class="filter-search-big" id="hv-search" placeholder="Search by Senior ID or Name...">
+                    <div id="hv-filter-body">
+                        <input type="text" class="filter-search-big" id="hv-search" placeholder="Search by Senior Name or Visit ID...">
                         <div class="filter-grid" style="grid-template-columns:1fr 1fr 1fr;">
-                            <div class="filter-field"><label>BARANGAY</label><input type="text" id="hv-barangay"></div>
-                            <div class="filter-field"><label>PRIORITY LEVEL</label><input type="text" id="hv-priority"></div>
-                            <div class="filter-field"><label>VISIT STATUS</label><input type="text" id="hv-status"></div>
+                            <div class="filter-field">
+                                <label>BARANGAY</label>
+                                <select id="hv-barangay" class="filter-select">
+                                    <option value="">All Barangays</option>
+                                    <option>San Isidro</option>
+                                    <option>Maligaya</option>
+                                    <option>Bagong Pook</option>
+                                    <option>San Jose</option>
+                                </select>
+                            </div>
+                            <div class="filter-field">
+                                <label>PRIORITY LEVEL</label>
+                                <select id="hv-priority" class="filter-select">
+                                    <option value="">All Priorities</option>
+                                    <option>High</option>
+                                    <option>Medium</option>
+                                    <option>Low</option>
+                                </select>
+                            </div>
+                            <div class="filter-field">
+                                <label>VISIT STATUS</label>
+                                <select id="hv-status" class="filter-select">
+                                    <option value="">All Statuses</option>
+                                    <option>Scheduled</option>
+                                    <option>Completed</option>
+                                    <option>Missed</option>
+                                    <option>Ongoing</option>
+                                </select>
+                            </div>
                         </div>
                         <div class="filter-actions">
-                            <button class="filter-clear-btn">CLEAR ALL</button>
-                            <button class="filter-apply-btn">APPLY FILTERS</button>
+                            <button class="filter-clear-btn" id="hv-filter-clear">CLEAR ALL</button>
+                            <button class="filter-apply-btn" id="hv-filter-apply">APPLY FILTERS</button>
                         </div>
                     </div>
                 </div>
@@ -472,54 +585,340 @@
             <div id="senior-profile-content" class="tab-content hidden">
                 <header class="content-header">
                     <div><h1>Senior Citizen Profile Information</h1></div>
-                    <button class="profile-edit-btn" id="senior-profile-edit-btn"><svg viewBox="0 0 20 20" fill="none"><path d="M13.5 3.5L16.5 6.5L7 16H4V13L13.5 3.5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>EDIT</button>
+                    <button class="profile-edit-btn" id="senior-profile-edit-btn">
+                        <svg viewBox="0 0 20 20" fill="none"><path d="M13.5 3.5L16.5 6.5L7 16H4V13L13.5 3.5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+                        EDIT
+                    </button>
                 </header>
+
                 <div class="senior-profile-layout">
+                    <!-- LEFT: form fields -->
                     <div class="senior-profile-left">
+
+                        <!-- PERSONAL INFORMATION -->
                         <div class="senior-profile-section">
                             <h3 class="sp-section-title">PERSONAL INFORMATION</h3>
-                            <div class="sp-field"><label>Full Name:</label><input type="text" id="sp-fullname" class="sp-input" readonly></div>
-                            <div class="sp-field"><label>Date of Birth:</label><input type="text" id="sp-dob" class="sp-input" readonly></div>
-                            <div class="sp-field"><label>Age:</label><input type="text" id="sp-age" class="sp-input" readonly></div>
-                            <div class="sp-field"><label>Sex:</label><input type="text" id="sp-sex" class="sp-input" readonly></div>
-                            <div class="sp-field"><label>Civil Status:</label><input type="text" id="sp-civil" class="sp-input" readonly></div>
-                            <div class="sp-field"><label>Contact Number:</label><input type="text" id="sp-contact" class="sp-input" readonly></div>
-                            <div class="sp-field"><label>Senior ID:</label><input type="text" id="sp-seniorid" class="sp-input" readonly></div>
-                            <div class="sp-field"><label>Government ID:</label><input type="text" id="sp-govid" class="sp-input" readonly></div>
+                            <div class="sp-field">
+                                <label>Full Name:</label>
+                                <input type="text" id="sp-fullname" class="sp-input" readonly>
+                            </div>
+                            <div class="sp-field">
+                                <label>Date of Birth:</label>
+                                <div class="sp-date-wrap">
+                                    <input type="date" id="sp-dob" class="sp-input sp-date-input" readonly>
+                                    <button class="sp-cal-btn" type="button" tabindex="-1" title="Pick date" onclick="document.getElementById('sp-dob').showPicker&&document.getElementById('sp-dob').showPicker()">
+                                        <svg viewBox="0 0 18 18" fill="none"><rect x="2" y="3" width="14" height="13" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M2 7H16" stroke="currentColor" stroke-width="1.5"/><path d="M6 1V4M12 1V4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="sp-field">
+                                <label>Age:</label>
+                                <input type="text" id="sp-age" class="sp-input sp-readonly-always" readonly>
+                            </div>
+                            <div class="sp-field">
+                                <label>Sex:</label>
+                                <select id="sp-sex" class="sp-input sp-select" disabled>
+                                    <option value="">— Select —</option>
+                                    <option>Male</option>
+                                    <option>Female</option>
+                                </select>
+                            </div>
+                            <div class="sp-field">
+                                <label>Civil Status:</label>
+                                <select id="sp-civil" class="sp-input sp-select" disabled>
+                                    <option value="">— Select —</option>
+                                    <option>Single</option>
+                                    <option>Married</option>
+                                    <option>Widowed</option>
+                                    <option>Separated</option>
+                                    <option>Annulled</option>
+                                </select>
+                            </div>
+                            <div class="sp-field">
+                                <label>Contact Number:</label>
+                                <input type="tel" id="sp-contact" class="sp-input" readonly>
+                            </div>
+                            <div class="sp-field">
+                                <label>Senior ID:</label>
+                                <input type="text" id="sp-seniorid" class="sp-input" readonly placeholder="e.g. SC-2026-001">
+                            </div>
+                            <div class="sp-field">
+                                <label>Registered Date:</label>
+                                <div class="sp-date-wrap">
+                                    <input type="date" id="sp-registered" class="sp-input sp-date-input" readonly>
+                                    <button class="sp-cal-btn" type="button" tabindex="-1" title="Pick date" onclick="document.getElementById('sp-registered').showPicker&&document.getElementById('sp-registered').showPicker()">
+                                        <svg viewBox="0 0 18 18" fill="none"><rect x="2" y="3" width="14" height="13" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M2 7H16" stroke="currentColor" stroke-width="1.5"/><path d="M6 1V4M12 1V4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="sp-field">
+                                <label>Government ID:</label>
+                                <select id="sp-govid" class="sp-input sp-select" disabled>
+                                    <option value="">— Select —</option>
+                                    <option>PhilSys (National ID)</option>
+                                    <option>SSS ID</option>
+                                    <option>GSIS ID</option>
+                                    <option>Passport</option>
+                                    <option>Driver's License</option>
+                                    <option>Voter's ID</option>
+                                    <option>PRC ID</option>
+                                    <option>Postal ID</option>
+                                    <option>Senior Citizen ID</option>
+                                    <option>Other</option>
+                                </select>
+                            </div>
                         </div>
+
+                        <!-- LIVING SITUATION -->
                         <div class="senior-profile-section">
                             <h3 class="sp-section-title">LIVING SITUATION</h3>
-                            <div class="sp-field"><label>Barangay:</label><input type="text" id="sp-barangay" class="sp-input" readonly></div>
-                            <div class="sp-field"><label>Living Arrangement:</label><input type="text" id="sp-living" class="sp-input" readonly></div>
-                            <div class="sp-field"><label>Full Address:</label><input type="text" id="sp-address" class="sp-input" readonly></div>
-                            <div class="sp-field"><label>Representative:</label><input type="text" id="sp-rep" class="sp-input" readonly></div>
+                            <div class="sp-field">
+                                <label>Barangay:</label>
+                                <input type="text" id="sp-barangay" class="sp-input" readonly>
+                            </div>
+                            <div class="sp-field">
+                                <label>Living Arrangement:</label>
+                                <select id="sp-living" class="sp-input sp-select" disabled>
+                                    <option value="">— Select —</option>
+                                    <option>With Family</option>
+                                    <option>With Spouse</option>
+                                    <option>Lives Alone</option>
+                                    <option>Care Facility</option>
+                                    <option>With Caregiver</option>
+                                </select>
+                            </div>
+                            <div class="sp-field">
+                                <label>Full Address:</label>
+                                <input type="text" id="sp-address" class="sp-input" readonly>
+                            </div>
+                            <div class="sp-field">
+                                <label>Representative:</label>
+                                <input type="text" id="sp-rep" class="sp-input" readonly>
+                            </div>
                         </div>
+
+                        <!-- HEALTH AND MOBILITY -->
                         <div class="senior-profile-section">
                             <h3 class="sp-section-title">HEALTH AND MOBILITY</h3>
-                            <div class="sp-field"><label>Health Condition:</label><input type="text" id="sp-health" class="sp-input" readonly></div>
-                            <div class="sp-field"><label>Mobility Status:</label><input type="text" id="sp-mobility" class="sp-input" readonly></div>
-                            <div class="sp-field"><label>Last Home Visit:</label><input type="text" id="sp-lasthv" class="sp-input" readonly></div>
-                            <div class="sp-field"><label>Medical Equipment:</label><input type="text" id="sp-equipment" class="sp-input" readonly></div>
-                            <div class="sp-field"><label>Account Status:</label><input type="text" id="sp-accstatus" class="sp-input" readonly></div>
+                            <div class="sp-field">
+                                <label>Health Condition:</label>
+                                <input type="text" id="sp-health" class="sp-input" readonly placeholder="e.g. Hypertension, Diabetes">
+                            </div>
+                            <div class="sp-field">
+                                <label>Mobility Status:</label>
+                                <select id="sp-mobility" class="sp-input sp-select" disabled>
+                                    <option value="">— Select —</option>
+                                    <option>Fully Independent</option>
+                                    <option>Uses Aid (Cane/Walker)</option>
+                                    <option>Wheelchair-Bound</option>
+                                    <option>Bedridden</option>
+                                    <option>Limited Mobility</option>
+                                    <option>Needs Assistance</option>
+                                </select>
+                            </div>
+                            <div class="sp-field">
+                                <label>Last Home Visit:</label>
+                                <div class="sp-date-wrap">
+                                    <input type="date" id="sp-lasthv" class="sp-input sp-date-input" readonly>
+                                    <button class="sp-cal-btn" type="button" tabindex="-1" title="Pick date" onclick="document.getElementById('sp-lasthv').showPicker&&document.getElementById('sp-lasthv').showPicker()">
+                                        <svg viewBox="0 0 18 18" fill="none"><rect x="2" y="3" width="14" height="13" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M2 7H16" stroke="currentColor" stroke-width="1.5"/><path d="M6 1V4M12 1V4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="sp-field">
+                                <label>Medical Equipment:</label>
+                                <select id="sp-equipment" class="sp-input sp-select" disabled>
+                                    <option value="">— Select —</option>
+                                    <option>None</option>
+                                    <option>Wheelchair</option>
+                                    <option>Walker</option>
+                                    <option>Cane</option>
+                                    <option>Hearing Aid</option>
+                                    <option>Oxygen Tank</option>
+                                    <option>Blood Pressure Monitor</option>
+                                    <option>Glucometer</option>
+                                    <option>Hospital Bed</option>
+                                    <option>Other</option>
+                                </select>
+                            </div>
+                            <div class="sp-field">
+                                <label>Account Status:</label>
+                                <select id="sp-accstatus" class="sp-input sp-select" disabled>
+                                    <option>Active</option>
+                                    <option>Inactive</option>
+                                    <option>Deceased</option>
+                                </select>
+                            </div>
                         </div>
+
+                        <!-- VULNERABILITY ASSESSMENT (auto-calculated) -->
                         <div class="senior-profile-section">
-                            <h3 class="sp-section-title">VULNERABILITY ASSESSMENT</h3>
-                            <div class="sp-field"><label>Vulnerability Score:</label><input type="text" id="sp-vulnscore" class="sp-input" readonly></div>
-                            <div class="sp-field"><label>Priority Level:</label><input type="text" id="sp-prioritylevel" class="sp-input" readonly></div>
+                            <h3 class="sp-section-title">VULNERABILITY ASSESSMENT
+                                <span class="sp-auto-badge">Auto-calculated</span>
+                            </h3>
+                            <div class="sp-vuln-display">
+                                <div class="sp-vuln-score-box">
+                                    <span class="sp-vuln-number" id="sp-vulnscore-display">—</span>
+                                    <span class="sp-vuln-label">/ 12</span>
+                                </div>
+                                <div class="sp-vuln-breakdown" id="sp-vuln-breakdown">
+                                    <div class="sp-vuln-row"><span>Age</span><span id="sp-v-age">—/3</span></div>
+                                    <div class="sp-vuln-row"><span>Health</span><span id="sp-v-health">—/3</span></div>
+                                    <div class="sp-vuln-row"><span>Mobility</span><span id="sp-v-mobility">—/3</span></div>
+                                    <div class="sp-vuln-row"><span>Living Situation</span><span id="sp-v-living">—/3</span></div>
+                                </div>
+                            </div>
+                            <div class="sp-field" style="margin-top:12px;">
+                                <label>Vulnerability Score:</label>
+                                <input type="text" id="sp-vulnscore" class="sp-input sp-readonly-always" readonly placeholder="Auto-calculated">
+                            </div>
+                            <div class="sp-field">
+                                <label>Priority Level:</label>
+                                <input type="text" id="sp-prioritylevel" class="sp-input sp-readonly-always" readonly placeholder="Auto-calculated">
+                            </div>
                         </div>
                     </div>
+
+                    <!-- RIGHT: photo upload/capture boxes -->
                     <div class="senior-profile-right">
-                        <div class="sp-photo-box"><p class="sp-photo-label">SENIOR PICTURE</p><div class="sp-photo-placeholder" id="sp-photo-senior"></div></div>
-                        <div class="sp-photo-box"><p class="sp-photo-label">SENIOR GOVERNMENT ID</p><div class="sp-photo-placeholder" id="sp-photo-govid"></div></div>
-                        <div class="sp-photo-box"><p class="sp-photo-label">SENIOR OSCA ID PICTURE</p><div class="sp-photo-placeholder" id="sp-photo-oscaid"></div></div>
-                        <div class="sp-photo-box"><p class="sp-photo-label">REPRESENTATIVE GOVERNMENT ID</p><div class="sp-photo-placeholder" id="sp-photo-repid"></div></div>
+                        <!-- Cancel Edit button (visible only in edit mode) -->
+                        <div class="sp-cancel-edit-wrap hidden" id="sp-cancel-edit-wrap">
+                            <button class="sp-cancel-edit-btn" id="sp-cancel-edit-btn">
+                                <svg viewBox="0 0 16 16" fill="none"><path d="M3 3L13 13M13 3L3 13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+                                Cancel Edit
+                            </button>
+                        </div>
+
+                        <div class="sp-photo-box sp-photo-portrait">
+                            <p class="sp-photo-label">SENIOR PICTURE</p>
+                            <div class="sp-photo-placeholder sp-photo-portrait-box" id="sp-photo-senior">
+                                <img id="sp-img-senior" src="" alt="" style="display:none;width:100%;height:100%;object-fit:cover;border-radius:6px;">
+                                <span class="sp-photo-empty-icon" id="sp-empty-senior">
+                                    <svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="15" r="6" stroke="currentColor" stroke-width="1.5"/><path d="M6 36C6 28 12 23 20 23C28 23 34 28 34 36" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                                </span>
+                            </div>
+                            <div class="sp-photo-actions hidden" id="sp-photo-actions-senior">
+                                <input type="file" id="sp-file-senior" accept="image/*" class="hidden">
+                                <button class="sp-upload-btn" onclick="document.getElementById('sp-file-senior').click()">
+                                    <svg viewBox="0 0 16 16" fill="none"><path d="M8 2V11M4 5L8 2L12 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 13H14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>Upload
+                                </button>
+                                <button class="sp-capture-btn" data-target="senior">
+                                    <svg viewBox="0 0 16 16" fill="none"><path d="M2 5.5C2 4.7 2.7 4 3.5 4H5L6 2.5H10L11 4H12.5C13.3 4 14 4.7 14 5.5V12C14 12.8 13.3 13.5 12.5 13.5H3.5C2.7 13.5 2 12.8 2 12V5.5Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><circle cx="8" cy="8.5" r="2.2" stroke="currentColor" stroke-width="1.3"/></svg>Capture
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="sp-photo-box sp-photo-landscape">
+                            <p class="sp-photo-label">SENIOR GOVERNMENT ID</p>
+                            <div class="sp-photo-placeholder sp-photo-landscape-box" id="sp-photo-govid-img">
+                                <img id="sp-img-govid" src="" alt="" style="display:none;width:100%;height:100%;object-fit:cover;border-radius:6px;">
+                                <span class="sp-photo-empty-icon" id="sp-empty-govid">
+                                    <svg viewBox="0 0 40 40" fill="none"><rect x="4" y="10" width="32" height="20" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M10 18H18M10 22H14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="27" cy="20" r="4" stroke="currentColor" stroke-width="1.5"/></svg>
+                                </span>
+                            </div>
+                            <div class="sp-photo-actions hidden" id="sp-photo-actions-govid">
+                                <input type="file" id="sp-file-govid" accept="image/*" class="hidden">
+                                <button class="sp-upload-btn" onclick="document.getElementById('sp-file-govid').click()">
+                                    <svg viewBox="0 0 16 16" fill="none"><path d="M8 2V11M4 5L8 2L12 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 13H14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>Upload
+                                </button>
+                                <button class="sp-capture-btn" data-target="govid">
+                                    <svg viewBox="0 0 16 16" fill="none"><path d="M2 5.5C2 4.7 2.7 4 3.5 4H5L6 2.5H10L11 4H12.5C13.3 4 14 4.7 14 5.5V12C14 12.8 13.3 13.5 12.5 13.5H3.5C2.7 13.5 2 12.8 2 12V5.5Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><circle cx="8" cy="8.5" r="2.2" stroke="currentColor" stroke-width="1.3"/></svg>Capture
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="sp-photo-box sp-photo-landscape">
+                            <p class="sp-photo-label">SENIOR OSCA ID PICTURE</p>
+                            <div class="sp-photo-placeholder sp-photo-landscape-box" id="sp-photo-oscaid-img">
+                                <img id="sp-img-oscaid" src="" alt="" style="display:none;width:100%;height:100%;object-fit:cover;border-radius:6px;">
+                                <span class="sp-photo-empty-icon" id="sp-empty-oscaid">
+                                    <svg viewBox="0 0 40 40" fill="none"><rect x="4" y="10" width="32" height="20" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M10 18H18M10 22H14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="27" cy="20" r="4" stroke="currentColor" stroke-width="1.5"/></svg>
+                                </span>
+                            </div>
+                            <div class="sp-photo-actions hidden" id="sp-photo-actions-oscaid">
+                                <input type="file" id="sp-file-oscaid" accept="image/*" class="hidden">
+                                <button class="sp-upload-btn" onclick="document.getElementById('sp-file-oscaid').click()">
+                                    <svg viewBox="0 0 16 16" fill="none"><path d="M8 2V11M4 5L8 2L12 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 13H14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>Upload
+                                </button>
+                                <button class="sp-capture-btn" data-target="oscaid">
+                                    <svg viewBox="0 0 16 16" fill="none"><path d="M2 5.5C2 4.7 2.7 4 3.5 4H5L6 2.5H10L11 4H12.5C13.3 4 14 4.7 14 5.5V12C14 12.8 13.3 13.5 12.5 13.5H3.5C2.7 13.5 2 12.8 2 12V5.5Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><circle cx="8" cy="8.5" r="2.2" stroke="currentColor" stroke-width="1.3"/></svg>Capture
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="sp-photo-box sp-photo-landscape">
+                            <p class="sp-photo-label">REPRESENTATIVE GOVERNMENT ID</p>
+                            <div class="sp-photo-placeholder sp-photo-landscape-box" id="sp-photo-repid-img">
+                                <img id="sp-img-repid" src="" alt="" style="display:none;width:100%;height:100%;object-fit:cover;border-radius:6px;">
+                                <span class="sp-photo-empty-icon" id="sp-empty-repid">
+                                    <svg viewBox="0 0 40 40" fill="none"><rect x="4" y="10" width="32" height="20" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M10 18H18M10 22H14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="27" cy="20" r="4" stroke="currentColor" stroke-width="1.5"/></svg>
+                                </span>
+                            </div>
+                            <div class="sp-photo-actions hidden" id="sp-photo-actions-repid">
+                                <input type="file" id="sp-file-repid" accept="image/*" class="hidden">
+                                <button class="sp-upload-btn" onclick="document.getElementById('sp-file-repid').click()">
+                                    <svg viewBox="0 0 16 16" fill="none"><path d="M8 2V11M4 5L8 2L12 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 13H14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>Upload
+                                </button>
+                                <button class="sp-capture-btn" data-target="repid">
+                                    <svg viewBox="0 0 16 16" fill="none"><path d="M2 5.5C2 4.7 2.7 4 3.5 4H5L6 2.5H10L11 4H12.5C13.3 4 14 4.7 14 5.5V12C14 12.8 13.3 13.5 12.5 13.5H3.5C2.7 13.5 2 12.8 2 12V5.5Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><circle cx="8" cy="8.5" r="2.2" stroke="currentColor" stroke-width="1.3"/></svg>Capture
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
                 <div class="sp-action-bar">
                     <button class="sp-back-btn" id="sp-back-btn">← Back</button>
                     <div style="display:flex;gap:10px;">
                         <button class="sp-delete-btn" id="sp-delete-btn">DELETE</button>
                         <button class="sp-save-btn" id="sp-save-btn">SAVE</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ====== CALENDAR MODAL ====== -->
+            <div id="calendar-modal" class="modal-overlay hidden" role="dialog" aria-modal="true">
+                <div class="modal-card" style="max-width:360px;">
+                    <div class="modal-header">
+                        <h3 id="calendar-modal-title">Select Date</h3>
+                        <button class="modal-close" id="calendar-modal-close"><svg viewBox="0 0 20 20" fill="none"><path d="M5 5L15 15M15 5L5 15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
+                    </div>
+                    <div class="modal-body" style="padding:16px 20px 20px;">
+                        <div class="cal-nav">
+                            <button class="cal-nav-btn" id="cal-prev">&#8249;</button>
+                            <span class="cal-month-label" id="cal-month-label"></span>
+                            <button class="cal-nav-btn" id="cal-next">&#8250;</button>
+                        </div>
+                        <div class="cal-grid">
+                            <div class="cal-day-header">Su</div><div class="cal-day-header">Mo</div>
+                            <div class="cal-day-header">Tu</div><div class="cal-day-header">We</div>
+                            <div class="cal-day-header">Th</div><div class="cal-day-header">Fr</div>
+                            <div class="cal-day-header">Sa</div>
+                        </div>
+                        <div class="cal-days" id="cal-days"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="modal-cancel" id="calendar-modal-cancel">Cancel</button>
+                        <button class="modal-submit" id="calendar-modal-confirm">Select</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ====== CAMERA MODAL ====== -->
+            <div id="camera-modal" class="modal-overlay hidden" role="dialog" aria-modal="true">
+                <div class="modal-card" style="max-width:480px;">
+                    <div class="modal-header">
+                        <h3>Capture Photo</h3>
+                        <button class="modal-close" id="camera-modal-close"><svg viewBox="0 0 20 20" fill="none"><path d="M5 5L15 15M15 5L5 15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
+                    </div>
+                    <div class="modal-body" style="padding:16px 20px;align-items:center;">
+                        <video id="camera-video" autoplay playsinline style="width:100%;border-radius:8px;background:#000;max-height:300px;"></video>
+                        <canvas id="camera-canvas" style="display:none;"></canvas>
+                        <p class="modal-field-error" id="camera-error" style="margin-top:8px;"></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="modal-cancel" id="camera-cancel">Cancel</button>
+                        <button class="modal-submit" id="camera-capture-btn">📷 Capture</button>
                     </div>
                 </div>
             </div>
