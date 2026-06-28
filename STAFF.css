@@ -2083,3 +2083,440 @@ input:focus-visible,
     .filter-grid { grid-template-columns: 1fr; }
     .vd-photo-compare { flex-direction: column; }
 }
+
+/* ============================================================
+   SENIOR PROFILE — IMPROVED FIELDS
+============================================================ */
+
+/* Make all sp-input fields clearly visible */
+.sp-input {
+    flex: 1;
+    padding: 7px 10px;
+    font-size: 0.84rem;
+    font-family: var(--font-main);
+    border: 1.5px solid var(--line-soft);
+    border-radius: 6px;
+    background: var(--bg-surface);
+    color: var(--ink);
+    outline: none;
+    transition: border-color 0.15s, background 0.15s;
+    min-height: 34px;
+}
+.sp-input[readonly] {
+    background: var(--bg-page);
+    color: var(--ink-soft);
+    cursor: default;
+}
+/* Fields that are ALWAYS read-only (never editable) */
+.sp-input.sp-readonly-always {
+    background: var(--sage-50) !important;
+    color: var(--ink-soft) !important;
+    border-color: var(--sage-200) !important;
+    cursor: not-allowed;
+    font-style: italic;
+}
+/* When editing: editable fields become visually active */
+.sp-editing .sp-input:not([readonly]):not(.sp-readonly-always),
+.sp-editing .sp-select:not(:disabled) {
+    background: var(--bg-surface);
+    border-color: var(--sage-deep);
+    color: var(--ink);
+    cursor: text;
+}
+.sp-editing .sp-input:not([readonly]):not(.sp-readonly-always):focus,
+.sp-editing .sp-select:not(:disabled):focus {
+    box-shadow: 0 0 0 3px rgba(113,129,95,0.15);
+}
+
+/* Select dropdowns */
+.sp-select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4 6L8 10L12 6' stroke='%238C9482' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 9px center;
+    background-size: 14px;
+    padding-right: 30px;
+    cursor: pointer;
+}
+.sp-select:disabled {
+    background-color: var(--bg-page);
+    color: var(--ink-soft);
+    cursor: default;
+    opacity: 1; /* keep full opacity so text is readable */
+}
+.sp-editing .sp-select:not(:disabled) {
+    cursor: pointer;
+}
+
+/* Date field with calendar button */
+.sp-date-wrap {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 0;
+    border: 1.5px solid var(--line-soft);
+    border-radius: 6px;
+    overflow: hidden;
+    background: var(--bg-page);
+    transition: border-color 0.15s;
+}
+.sp-editing .sp-date-wrap:focus-within {
+    border-color: var(--sage-deep);
+    box-shadow: 0 0 0 3px rgba(113,129,95,0.15);
+}
+.sp-date-wrap .sp-date-input {
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0;
+    flex: 1;
+    background: transparent;
+    min-width: 0;
+}
+.sp-cal-btn {
+    flex-shrink: 0;
+    width: 34px;
+    height: 34px;
+    background: var(--sage-50);
+    border: none;
+    border-left: 1px solid var(--line-soft);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--sage-deep);
+    cursor: pointer;
+    transition: background 0.15s;
+}
+.sp-cal-btn svg { width: 15px; height: 15px; }
+.sp-cal-btn:hover { background: var(--sage-200); }
+/* Hide calendar button in read-only mode */
+.sp-date-wrap .sp-date-input[readonly] + .sp-cal-btn {
+    pointer-events: none;
+    opacity: 0.4;
+}
+
+/* Vulnerability section */
+.sp-section-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: var(--ink);
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    margin-bottom: 14px;
+}
+.sp-auto-badge {
+    display: inline-flex;
+    padding: 2px 8px;
+    background: rgba(92,127,166,0.12);
+    border: 1px solid rgba(92,127,166,0.25);
+    border-radius: 999px;
+    font-size: 0.62rem;
+    font-weight: 700;
+    color: #2C5F8A;
+    text-transform: none;
+    letter-spacing: 0;
+}
+
+.sp-vuln-display {
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+    padding: 14px;
+    background: var(--bg-page);
+    border: 1.5px solid var(--line-soft);
+    border-radius: var(--radius-sm);
+    margin-bottom: 10px;
+}
+.sp-vuln-score-box {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+    flex-shrink: 0;
+}
+.sp-vuln-number {
+    font-family: var(--font-display);
+    font-size: 2.4rem;
+    font-weight: 600;
+    color: var(--sage-deep);
+    line-height: 1;
+}
+.sp-vuln-label { font-size: 0.9rem; color: var(--ink-faint); font-weight: 600; }
+.sp-vuln-breakdown { flex: 1; display: flex; flex-direction: column; gap: 6px; }
+.sp-vuln-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--ink-soft);
+    padding: 3px 0;
+    border-bottom: 1px solid var(--line-soft);
+}
+.sp-vuln-row:last-child { border-bottom: none; }
+.sp-vuln-row span:last-child { font-weight: 800; color: var(--ink); }
+
+/* Photo upload/capture boxes */
+.sp-photo-placeholder {
+    width: 100%;
+    height: 150px;
+    background: var(--bg-page);
+    border: 2px dashed var(--line-soft);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--ink-faint);
+    font-size: 0.78rem;
+    overflow: hidden;
+    transition: border-color 0.15s;
+    position: relative;
+}
+.sp-editing .sp-photo-placeholder {
+    border-color: var(--sage-deep);
+    border-style: dashed;
+}
+.sp-photo-empty-icon svg { width: 44px; height: 44px; }
+
+.sp-photo-actions {
+    display: flex;
+    gap: 6px;
+    margin-top: 8px;
+}
+.sp-upload-btn, .sp-capture-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 7px 10px;
+    border-radius: var(--radius-sm);
+    font-size: 0.75rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.15s, border-color 0.15s;
+}
+.sp-upload-btn {
+    background: var(--bg-surface);
+    border: 1.5px solid var(--line-soft);
+    color: var(--ink);
+}
+.sp-upload-btn:hover { background: var(--sage-50); border-color: var(--sage-deep); }
+.sp-upload-btn svg { width: 13px; height: 13px; }
+.sp-capture-btn {
+    background: var(--apricot);
+    border: 1.5px solid var(--line);
+    color: var(--ink);
+}
+.sp-capture-btn:hover { background: var(--apricot-deep); }
+.sp-capture-btn svg { width: 13px; height: 13px; }
+
+/* Edit btn in header changes state */
+.sp-editing-label {
+    background: var(--sage-50) !important;
+    border-color: var(--sage-deep) !important;
+    color: var(--sage-deep) !important;
+}
+
+/* ============================================================
+   SORT DROPDOWN
+============================================================ */
+.sort-dropdown-wrap { position: relative; display: inline-block; }
+
+.sort-dropdown {
+    display: none;
+    position: absolute;
+    top: calc(100% + 6px);
+    right: 0;
+    background: var(--bg-surface);
+    border: 1.5px solid var(--line-soft);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-pop);
+    z-index: 50;
+    min-width: 200px;
+    overflow: hidden;
+    animation: riseModal 0.16s cubic-bezier(0.16,1,0.3,1);
+}
+.sort-dropdown.open { display: block; }
+
+.sort-option {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 10px 16px;
+    background: transparent;
+    border: none;
+    font-size: 0.84rem;
+    font-weight: 600;
+    color: var(--ink);
+    cursor: pointer;
+    transition: background 0.12s;
+    border-bottom: 1px solid var(--line-soft);
+}
+.sort-option:last-child { border-bottom: none; }
+.sort-option:hover { background: var(--sage-50); }
+.sort-option.active {
+    background: var(--sage-50);
+    color: var(--sage-deep);
+    font-weight: 800;
+}
+.sort-option.active::after { content: ' ↑'; font-size: 0.75rem; }
+.sort-option.active.desc::after { content: ' ↓'; }
+
+/* Filter selects */
+.filter-select,
+.filter-text-input {
+    width: 100%;
+    padding: 7px 10px;
+    font-size: 0.84rem;
+    font-family: var(--font-main);
+    border: 1.5px solid var(--line-soft);
+    border-radius: var(--radius-sm);
+    background: var(--bg-page);
+    color: var(--ink);
+    outline: none;
+    transition: border-color 0.15s;
+}
+.filter-select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4 6L8 10L12 6' stroke='%238C9482' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    background-size: 14px;
+    padding-right: 28px;
+    cursor: pointer;
+}
+.filter-select:focus,
+.filter-text-input:focus {
+    border-color: var(--sage-deep);
+    background: var(--bg-surface);
+    box-shadow: 0 0 0 3px rgba(113,129,95,0.12);
+}
+
+/* Active filter indicator on filter fields */
+.filter-field.has-filter label {
+    color: var(--sage-deep);
+    font-weight: 800;
+}
+.filter-field.has-filter .filter-select,
+.filter-field.has-filter .filter-text-input {
+    border-color: var(--sage-deep);
+    background: rgba(113,129,95,0.06);
+}
+
+/* Empty state message */
+.senior-empty-msg {
+    text-align: center;
+    padding: 32px;
+    color: var(--ink-faint);
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+/* ============================================================
+   PHOTO CONTAINERS — real-world proportions
+============================================================ */
+
+/* Portrait: 3:4 ratio — for person photo */
+.sp-photo-portrait-box {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    height: auto !important;
+}
+
+/* Landscape: 85.6×54mm credit-card ratio (1.586:1) — for ID cards */
+.sp-photo-landscape-box {
+    width: 100%;
+    aspect-ratio: 85.6 / 54;
+    height: auto !important;
+}
+
+/* Cancel Edit button — shown beside Edit header button while editing */
+.sp-cancel-edit-wrap {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 12px;
+}
+.sp-cancel-edit-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 16px;
+    background: #FEF2F2;
+    border: 1.5px solid #FECACA;
+    border-radius: var(--radius-sm);
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #C0392B;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+.sp-cancel-edit-btn svg { width: 13px; height: 13px; }
+.sp-cancel-edit-btn:hover { background: #FEE2E2; }
+
+/* ============================================================
+   CALENDAR WIDGET
+============================================================ */
+.cal-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 14px;
+}
+.cal-nav-btn {
+    background: none;
+    border: 1.5px solid var(--line-soft);
+    border-radius: var(--radius-sm);
+    width: 32px; height: 32px;
+    font-size: 1.1rem;
+    color: var(--ink);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.12s;
+}
+.cal-nav-btn:hover { background: var(--sage-50); }
+.cal-month-label {
+    font-size: 0.9rem;
+    font-weight: 800;
+    color: var(--ink);
+}
+.cal-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 2px;
+    margin-bottom: 4px;
+}
+.cal-day-header {
+    text-align: center;
+    font-size: 0.7rem;
+    font-weight: 800;
+    color: var(--ink-faint);
+    padding: 4px 0;
+}
+.cal-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 2px;
+}
+.cal-day {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: background 0.1s, color 0.1s;
+    color: var(--ink);
+}
+.cal-day:hover { background: var(--sage-50); border-color: var(--sage-200); }
+.cal-day.today { border-color: var(--sage-deep); color: var(--sage-deep); font-weight: 800; }
+.cal-day.selected { background: var(--sage-deep); color: #fff; border-color: var(--sage-deep); }
+.cal-day.other-month { color: var(--ink-faint); }
+.cal-day.empty { cursor: default; }
+.cal-day.empty:hover { background: none; border-color: transparent; }
