@@ -71,16 +71,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
     /* [TODO: API] GET /api/seniors */
     const MOCK_SENIORS = [
-        {initials:'MA', name:'Aquino, Manuel',  id:'SC-2024-001', age:77, barangay:'Manahita',  civil:'Widowed',   living:'With Family',  health:'Hypertension',            mobility:'Limited Mobility', priority:'Low',    vulnScore:20, vulnMax:100, status:'Active'},
-        {initials:'EA', name:'Aquino, Ramon',   id:'SC-2024-002', age:81, barangay:'Manahita',  civil:'Widowed',   living:'Lives Alone',  health:'Dementia, Hypertension',  mobility:'# Uses Aid',       priority:'High',   vulnScore:37, vulnMax:100, status:'Active'},
-        {initials:'LB', name:'Bautista, Luz',   id:'SC-2024-003', age:70, barangay:'San Rafael',civil:'Separated', living:'With Family',  health:'Osteoporosis',            mobility:'Limited Mobility', priority:'Low',    vulnScore:30, vulnMax:100, status:'Active'},
-        {initials:'MB', name:'Bautista, Marie', id:'SC-2024-004', age:62, barangay:'Sta. Cruz', civil:'Single',    living:'Care Facility',health:'Arthritis, Diabetes',      mobility:'# Independent',    priority:'Low',    vulnScore:23, vulnMax:100, status:'Inactive'},
-        {initials:'MB', name:'Bautista, Miguel',id:'SC-2024-005', age:60, barangay:'San Rafael',civil:'Widowed',   living:'With Spouse',  health:'Diabetes',                mobility:'Limited Mobility', priority:'Low',    vulnScore:30, vulnMax:100, status:'Active'},
-        {initials:'FC', name:'Castro, Fernando',id:'SC-2024-006', age:86, barangay:'San Rafael',civil:'Married',   living:'Lives Alone',  health:'Arthritis, Diabetes',      mobility:'Limited Mobility', priority:'Medium', vulnScore:37, vulnMax:100, status:'Active'},
-        {initials:'LC', name:'Castro, Luz',     id:'SC-2024-007', age:71, barangay:'Nalatao',   civil:'Single',    living:'With Family',  health:'Hypertension',            mobility:'# Independent',    priority:'Low',    vulnScore:30, vulnMax:100, status:'Active'},
-        {initials:'MC', name:'Cruz, Maria',     id:'SC-2024-008', age:88, barangay:'Manahita',  civil:'Married',   living:'With Family',  health:'Stroke, Hypertension',    mobility:'# Independent',    priority:'Medium', vulnScore:45, vulnMax:100, status:'Active'},
-        {initials:'RC', name:'Cruz, Ricardo',   id:'SC-2024-009', age:80, barangay:'Banderos',  civil:'Widowed',   living:'With Spouse',  health:'Hypertension',            mobility:'# Independent',    priority:'Low',    vulnScore:30, vulnMax:100, status:'Active'},
-        {initials:'RC', name:'Cruz, Ricardo',   id:'SC-2024-010', age:60, barangay:'Sto. Tomas Proper',civil:'Widowed',living:'With Spouse',health:'Arthritis, Diabetes', mobility:'# Independent',    priority:'Low',    vulnScore:32, vulnMax:100, status:'Inactive'},
+        {initials:'MA', name:'Aquino, Manuel',   id:'SC-2024-001', age:77, sex:'Male',   barangay:'Manahita',         civil:'Widowed',   living:'With Family',   health:'Hypertension',           mobility:'Limited Mobility',      priority:'Low',    vulnScore:5,  vulnMax:12, status:'Active'},
+        {initials:'EA', name:'Aquino, Ramon',    id:'SC-2024-002', age:81, sex:'Male',   barangay:'Manahita',         civil:'Widowed',   living:'Lives Alone',   health:'Dementia, Hypertension', mobility:'Uses Aid (Cane/Walker)', priority:'High',   vulnScore:11, vulnMax:12, status:'Active'},
+        {initials:'LB', name:'Bautista, Luz',    id:'SC-2024-003', age:70, sex:'Female', barangay:'San Rafael',       civil:'Separated', living:'With Family',   health:'Osteoporosis',           mobility:'Limited Mobility',      priority:'Low',    vulnScore:4,  vulnMax:12, status:'Active'},
+        {initials:'MB', name:'Bautista, Marie',  id:'SC-2024-004', age:62, sex:'Female', barangay:'Sta. Cruz',        civil:'Single',    living:'Care Facility', health:'Arthritis, Diabetes',    mobility:'Fully Independent',     priority:'Low',    vulnScore:3,  vulnMax:12, status:'Inactive'},
+        {initials:'MB', name:'Bautista, Miguel', id:'SC-2024-005', age:60, sex:'Male',   barangay:'San Rafael',       civil:'Widowed',   living:'With Spouse',   health:'Diabetes',               mobility:'Limited Mobility',      priority:'Low',    vulnScore:3,  vulnMax:12, status:'Active'},
+        {initials:'FC', name:'Castro, Fernando', id:'SC-2024-006', age:86, sex:'Male',   barangay:'San Rafael',       civil:'Married',   living:'Lives Alone',   health:'Arthritis, Diabetes',    mobility:'Limited Mobility',      priority:'Medium', vulnScore:8,  vulnMax:12, status:'Active'},
+        {initials:'LC', name:'Castro, Luz',      id:'SC-2024-007', age:71, sex:'Female', barangay:'Nalatao',          civil:'Single',    living:'With Family',   health:'Hypertension',           mobility:'Fully Independent',     priority:'Low',    vulnScore:3,  vulnMax:12, status:'Active'},
+        {initials:'MC', name:'Cruz, Maria',      id:'SC-2024-008', age:88, sex:'Female', barangay:'Manahita',         civil:'Married',   living:'With Family',   health:'Stroke, Hypertension',   mobility:'Fully Independent',     priority:'Medium', vulnScore:7,  vulnMax:12, status:'Active'},
+        {initials:'RC', name:'Cruz, Ricardo',    id:'SC-2024-009', age:80, sex:'Male',   barangay:'Banderos',         civil:'Widowed',   living:'With Spouse',   health:'Hypertension',           mobility:'Fully Independent',     priority:'Low',    vulnScore:4,  vulnMax:12, status:'Active'},
+        {initials:'RC', name:'Cruz, Ricardo',    id:'SC-2024-010', age:60, sex:'Male',   barangay:'Sto. Tomas Proper',civil:'Widowed',   living:'With Spouse',   health:'Arthritis, Diabetes',    mobility:'Fully Independent',     priority:'Low',    vulnScore:3,  vulnMax:12, status:'Inactive'},
     ];
 
     /* [TODO: API] GET /api/priority-cases */
@@ -161,6 +161,25 @@ document.addEventListener('DOMContentLoaded', function () {
         document.body.style.display   = 'block';
         document.body.style.minHeight = '100vh';
         document.body.style.overflow  = 'hidden';
+        startClock();
+    }
+
+    function startClock() {
+        function tick() {
+            const now  = new Date();
+            const h    = now.getHours();
+            const greet= h < 12 ? 'Good morning' : h < 17 ? 'Good afternoon' : 'Good evening';
+            const timeStr = now.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',hour12:true});
+            const dayStr  = now.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric'});
+            const nameEl  = document.getElementById('dash-greeting');
+            const subEl   = document.getElementById('dash-subtitle');
+            const timeEl  = document.getElementById('dash-time');
+            if (nameEl)  nameEl.textContent  = greet + ', ' + (MOCK_STAFF.firstName || 'Staff');
+            if (subEl)   subEl.textContent   = "Here\'s what\'s happening today, " + dayStr + '.';
+            if (timeEl)  timeEl.textContent  = '🕒 ' + timeStr;
+        }
+        tick();
+        setInterval(tick, 1000);
     }
 
     /* ════════════════════════════════════════════
@@ -213,15 +232,98 @@ document.addEventListener('DOMContentLoaded', function () {
        4. RENDER ALL SECTIONS (called after login)
     ════════════════════════════════════════════ */
     function renderAllSections() {
-        renderRequests(MOCK_REQUESTS);
+        // Senior data
+        recalcAllVulnScores();          // ensure all seniors have correct scores
+        updateSeniorStats();
+        refreshBarangayDropdown();
         renderSeniors(MOCK_SENIORS);
-        renderPriority(MOCK_PRIORITY);
-        renderHomeVisits(MOCK_HV);
-        renderPhotos(MOCK_PHOTOS);
-        setupNotifications();
         setupSeniorFilters();
+        // Priority (derived from seniors)
+        setTimeout(() => { renderPriority(buildPriorityFromSeniors()); updatePriorityStats(); }, 0);
+        // Request
+        renderRequests(MOCK_REQUESTS);
+        updateRequestStats();
+        // Home visits
+        renderHomeVisits(MOCK_HV);
+        updateHomeVisitStats();
         setupHomeVisitFilters();
+        // Photos
+        renderPhotos(MOCK_PHOTOS);
         setupPhotoFilters();
+        // Notifications
+        setupNotifications();
+        // Dashboard KPIs
+        updateDashboardKPIs();
+    }
+
+    /* Recalculate vuln score for ALL seniors using the scoring engine data */
+    function recalcAllVulnScores() {
+        MOCK_SENIORS.forEach(s => {
+            const h = (s.health   || '').toLowerCase();
+            const m = (s.mobility || '').toLowerCase();
+            const l = (s.living   || '').toLowerCase();
+            const aS = s.age >= 80 ? 3 : s.age >= 70 ? 2 : s.age >= 60 ? 1 : 0;
+            const severe = ['stroke','dementia','cancer','heart','renal','alzheimer'];
+            const mod    = ['diabetes','copd','asthma','parkinson','hypertension','osteoporosis','arthritis'];
+            const condCount = h.trim() ? (h.match(/,/g)||[]).length + 1 : 0;
+            const hS = severe.some(c => h.includes(c)) ? 3 : condCount >= 2 || mod.some(c => h.includes(c)) ? 2 : condCount >= 1 ? 1 : 0;
+            const mS = m.includes('bedridden')||m.includes('wheelchair') ? 3 : m.includes('limited')||m.includes('assistance')||m.includes('uses aid') ? 2 : m&&!m.includes('fully independent') ? 1 : 0;
+            const lS = l.includes('alone') ? 3 : l.includes('care') ? 2 : l.includes('caregiver') ? 1 : 0;
+            s.vulnScore = aS + hS + mS + lS;
+            s.vulnMax   = 12;
+            s.priority  = s.vulnScore >= 10 ? 'High' : s.vulnScore >= 7 ? 'Medium' : 'Low';
+        });
+    }
+
+    /* Update dashboard KPI cards from live data */
+    function updateDashboardKPIs() {
+        setText('dash-total-req', MOCK_REQUESTS.length.toString());
+        setText('dash-seniors',   MOCK_SENIORS.length.toString());
+        const highCount = MOCK_SENIORS.filter(s => s.priority === 'High').length;
+        setText('dash-priority', highCount.toString());
+        const todayVisits = MOCK_HV.filter(v => v.status !== 'Missed');
+        const completed   = MOCK_HV.filter(v => v.status === 'Completed');
+        setText('dash-hv',       todayVisits.length.toString());
+        setText('dash-hv-trend', completed.length + ' completed');
+
+        // Recent requests list (last 4)
+        const reqList = document.getElementById('dash-recent-req');
+        if (reqList) {
+            const last4 = [...MOCK_REQUESTS].slice(-4).reverse();
+            reqList.innerHTML = last4.map(r => {
+                const cls = r.status === 'Approved' ? 'dot-green' : 'dot-amber';
+                return '<li><span class="dot ' + cls + '"></span> ' + r.item + ' — ' + r.senior + '<span class="time">' + r.date + '</span></li>';
+            }).join('') || '<li><span style="color:var(--ink-faint);font-size:0.85rem;">No requests yet.</span></li>';
+        }
+
+        // Today's home visits list (last 3)
+        const hvList = document.getElementById('dash-hv-list');
+        if (hvList) {
+            const last3 = [...MOCK_HV].slice(0, 3);
+            hvList.innerHTML = last3.map(v =>
+                '<li><span class="dot dot-blue"></span> ' + (v.addr || 'N/A') + '<span class="time">' + (v.dt||'').split('\n')[1] + '</span></li>'
+            ).join('') || '<li><span style="color:var(--ink-faint);font-size:0.85rem;">No visits scheduled yet.</span></li>';
+        }
+    }
+
+    /* Request stats */
+    function updateRequestStats() {
+        const total    = MOCK_REQUESTS.length;
+        const pending  = MOCK_REQUESTS.filter(r => r.status === 'Pending').length;
+        const approved = MOCK_REQUESTS.filter(r => r.status === 'Approved').length;
+        const rejected = MOCK_REQUESTS.filter(r => r.status === 'Rejected').length;
+        setText('rm-total',    total.toString());
+        setText('rm-pending',  pending.toString());
+        setText('rm-approved', approved.toString());
+        setText('rm-rejected', rejected.toString());
+    }
+
+    /* Home visit stats */
+    function updateHomeVisitStats() {
+        setText('hv-total',     MOCK_HV.length.toString());
+        setText('hv-completed', MOCK_HV.filter(v => v.status === 'Completed').length.toString());
+        setText('hv-missed',    MOCK_HV.filter(v => v.status === 'Missed').length.toString());
+        setText('hv-ongoing',   MOCK_HV.filter(v => v.status === 'Ongoing').length.toString());
     }
 
     /* ════════════════════════════════════════════
@@ -245,6 +347,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 <td><span class="badge ${priCls}">${r.priority} Priority</span></td>`;
             tbody.appendChild(tr);
         });
+        // Always update KPIs from the full dataset (not just filtered view)
+        updateRequestStats();
+        updateDashboardKPIs();
     }
 
     // Search + filter for requests
@@ -267,40 +372,129 @@ document.addEventListener('DOMContentLoaded', function () {
     /* ════════════════════════════════════════════
        6. SENIOR CITIZEN INFO
     ════════════════════════════════════════════ */
+
+    /* ── Stat card updater ─────────────────── */
+    function updateSeniorStats() {
+        const total  = MOCK_SENIORS.length;
+        const male   = MOCK_SENIORS.filter(s => s.sex === 'Male').length;
+        const female = MOCK_SENIORS.filter(s => s.sex === 'Female').length;
+        const active = MOCK_SENIORS.filter(s => s.status === 'Active').length;
+        setText('sc-total',         total.toLocaleString());
+        setText('sc-male',          male.toLocaleString());
+        setText('sc-female',        female.toLocaleString());
+        setText('sc-beneficiaries', active.toLocaleString());
+    }
+
+    /* ── Populate barangay dropdown dynamically ─ */
+    function refreshBarangayDropdown() {
+        const sel = document.getElementById('sf-barangay');
+        if (!sel) return;
+        const unique = [...new Set(MOCK_SENIORS.map(s => s.barangay).filter(Boolean))].sort();
+        // Keep first option "All Barangays"
+        while (sel.options.length > 1) sel.remove(1);
+        unique.forEach(b => { const o = document.createElement('option'); o.value = b; o.textContent = b; sel.appendChild(o); });
+    }
+
+    /* ── Sort state ───────────────────────── */
+    let sortKey = null, sortAsc = true;
+
+    function setupSortDropdown() {
+        const btn      = document.getElementById('senior-sort-btn');
+        const dropdown = document.getElementById('sort-dropdown');
+        if (!btn || !dropdown) return;
+
+        btn.addEventListener('click', e => {
+            e.stopPropagation();
+            dropdown.classList.toggle('open');
+        });
+        document.addEventListener('click', () => dropdown.classList.remove('open'));
+
+        dropdown.querySelectorAll('.sort-option').forEach(opt => {
+            opt.addEventListener('click', () => {
+                const key = opt.dataset.sort;
+                if (sortKey === key) {
+                    sortAsc = !sortAsc;
+                    opt.classList.toggle('desc', !sortAsc);
+                } else {
+                    sortKey = key; sortAsc = true;
+                    dropdown.querySelectorAll('.sort-option').forEach(o => { o.classList.remove('active','desc'); });
+                    opt.classList.add('active');
+                }
+                dropdown.classList.remove('open');
+                applyFilterAndSort();
+            });
+        });
+    }
+
+    function sortSeniors(data) {
+        if (!sortKey) return data;
+        return [...data].sort((a, b) => {
+            let va, vb;
+            switch (sortKey) {
+                case 'id':       va = a.id;        vb = b.id;        break;
+                case 'age':      va = a.age;        vb = b.age;        break;
+                case 'barangay': va = a.barangay;   vb = b.barangay;   break;
+                case 'civil':    va = a.civil;       vb = b.civil;      break;
+                case 'living':   va = a.living;      vb = b.living;     break;
+                case 'health':   va = a.health;      vb = b.health;     break;
+                case 'mobility': va = a.mobility;    vb = b.mobility;   break;
+                case 'vuln':     va = a.vulnScore;   vb = b.vulnScore;  break;
+                case 'status':   va = a.status;      vb = b.status;     break;
+                default:         return 0;
+            }
+            if (va == null) va = '';
+            if (vb == null) vb = '';
+            const cmp = typeof va === 'number' ? va - vb : String(va).localeCompare(String(vb));
+            return sortAsc ? cmp : -cmp;
+        });
+    }
+
+    /* ── Render ───────────────────────────── */
     function renderSeniors(data) {
-        const tbody = document.getElementById('senior-tbody');
+        const tbody   = document.getElementById('senior-tbody');
+        const emptyEl = document.getElementById('senior-empty-msg');
         if (!tbody) return;
         tbody.innerHTML = '';
+
+        if (data.length === 0) {
+            emptyEl?.classList.remove('hidden');
+            return;
+        }
+        emptyEl?.classList.add('hidden');
+
         data.forEach(s => {
-            const priCls   = s.priority === 'High' ? 'badge-high' : s.priority === 'Medium' ? 'badge-medium' : 'badge-low';
-            const statCls  = s.status === 'Active' ? 'badge-active' : 'badge-inactive';
-            const vulnCls  = s.priority === 'High' ? 'high' : s.priority === 'Medium' ? 'medium' : 'low';
+            const priCls  = s.priority === 'High' ? 'badge-high' : s.priority === 'Medium' ? 'badge-medium' : 'badge-low';
+            const statCls = s.status === 'Active' ? 'badge-active' : 'badge-inactive';
+            const vulnCls = s.priority === 'High' ? 'high'         : s.priority === 'Medium' ? 'medium' : 'low';
             const avatarBg = avatarColor(s.initials);
-            const pct      = Math.round((s.vulnScore / s.vulnMax) * 100);
+            const pct = Math.round(((s.vulnScore || 0) / (s.vulnMax || 12)) * 100);
             const tr = document.createElement('tr');
             tr.innerHTML = `
                 <td>
                     <div style="display:flex;align-items:center;gap:8px">
                         <div class="senior-avatar" style="background:${avatarBg}">${s.initials}</div>
-                        <div><div style="font-weight:700;font-size:0.82rem">${s.name}</div><div style="font-size:0.72rem;color:var(--ink-faint)">${s.id}</div></div>
+                        <div>
+                            <div style="font-weight:700;font-size:0.82rem">${s.name}</div>
+                            <div style="font-size:0.72rem;color:var(--ink-faint)">${s.id}</div>
+                        </div>
                     </div>
                 </td>
                 <td>${s.age} yo</td>
-                <td>${s.barangay}</td>
-                <td>${s.civil}</td>
-                <td>${s.living}</td>
-                <td>${s.health}</td>
-                <td>${s.mobility}</td>
-                <td><span class="badge ${priCls}">${s.priority}</span></td>
+                <td>${s.barangay || '—'}</td>
+                <td>${s.civil || '—'}</td>
+                <td>${s.living || '—'}</td>
+                <td>${s.health || '—'}</td>
+                <td>${s.mobility || '—'}</td>
+                <td><span class="badge ${priCls}">${s.priority || 'Low'}</span></td>
                 <td>
                     <div class="vuln-bar-wrap">
                         <div class="vuln-bar"><div class="vuln-fill ${vulnCls}" style="width:${pct}%"></div></div>
-                        <span class="vuln-score-txt">${s.vulnScore}/${s.vulnMax}</span>
+                        <span class="vuln-score-txt">${s.vulnScore || 0}/${s.vulnMax || 12}</span>
                     </div>
                 </td>
                 <td><span class="badge ${statCls}">${s.status}</span></td>
-                <td>
-                    <button class="tbl-icon-btn" title="View profile" data-senior-id="${s.id}">
+                <td style="white-space:nowrap;">
+                    <button class="tbl-icon-btn" title="View profile" data-view-id="${s.id}">
                         <svg viewBox="0 0 18 18" fill="none"><circle cx="9" cy="6" r="2.8" stroke="currentColor" stroke-width="1.5"/><path d="M3 16C3 12.7 5.7 10.5 9 10.5C12.3 10.5 15 12.7 15 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
                     </button>
                     <button class="tbl-icon-btn" title="Edit" data-edit-id="${s.id}">
@@ -310,70 +504,251 @@ document.addEventListener('DOMContentLoaded', function () {
             tbody.appendChild(tr);
         });
 
-        // View profile click
-        tbody.querySelectorAll('[data-senior-id]').forEach(btn => {
-            btn.addEventListener('click', () => openSeniorProfile(btn.dataset.seniorId));
-        });
+        // View button
+        tbody.querySelectorAll('[data-view-id]').forEach(btn =>
+            btn.addEventListener('click', () => openSeniorProfile(btn.dataset.viewId, false))
+        );
+        // Edit button — open profile in edit mode immediately
+        tbody.querySelectorAll('[data-edit-id]').forEach(btn =>
+            btn.addEventListener('click', () => openSeniorProfile(btn.dataset.editId, true))
+        );
     }
+
+    /* ── Filter state ─────────────────────── */
+    // Stores last applied filter values (set on APPLY, cleared on CLEAR ALL)
+    let activeFilters = {};
 
     function setupSeniorFilters() {
-        document.getElementById('senior-search')?.addEventListener('input', filterSeniors);
-        document.getElementById('senior-filter-apply')?.addEventListener('click', filterSeniors);
-        document.getElementById('senior-filter-clear')?.addEventListener('click', () => {
-            ['sf-barangay','sf-age','sf-sex','sf-civil','sf-living','sf-health','sf-mobility','sf-priority','sf-status','senior-search']
-                .forEach(id => { const el = document.getElementById(id); if(el) el.value = ''; });
-            renderSeniors(MOCK_SENIORS);
-        });
+        // Collapse/expand
         document.getElementById('senior-filter-toggle')?.addEventListener('click', function() {
-            const body = document.getElementById('senior-filter-body');
+            const body      = document.getElementById('senior-filter-body');
             const collapsed = body.style.display === 'none';
             body.style.display = collapsed ? '' : 'none';
-            this.textContent  = collapsed ? 'Collapse' : 'Expand';
+            this.textContent   = collapsed ? 'Collapse' : 'Expand';
         });
-        // Add record
-        document.getElementById('senior-add-btn')?.addEventListener('click', () => {
-            openSeniorProfile(null); // null = new record
+
+        // Live search (not Apply-gated)
+        document.getElementById('senior-search')?.addEventListener('input', applyFilterAndSort);
+
+        // APPLY FILTERS — snapshot current dropdown values into activeFilters
+        document.getElementById('senior-filter-apply')?.addEventListener('click', () => {
+            activeFilters = {
+                barangay : document.getElementById('sf-barangay')?.value  || '',
+                age      : document.getElementById('sf-age')?.value       || '',
+                sex      : document.getElementById('sf-sex')?.value       || '',
+                civil    : document.getElementById('sf-civil')?.value     || '',
+                living   : document.getElementById('sf-living')?.value    || '',
+                health   : (document.getElementById('sf-health')?.value   || '').toLowerCase(),
+                mobility : document.getElementById('sf-mobility')?.value  || '',
+                priority : document.getElementById('sf-priority')?.value  || '',
+                status   : document.getElementById('sf-status')?.value    || '',
+            };
+            // Highlight active filter fields
+            highlightActiveFilters();
+            applyFilterAndSort();
+        });
+
+        // CLEAR ALL — reset both the UI dropdowns and activeFilters
+        document.getElementById('senior-filter-clear')?.addEventListener('click', () => {
+            activeFilters = {};
+            ['sf-barangay','sf-age','sf-sex','sf-civil','sf-living','sf-health','sf-mobility','sf-priority','sf-status']
+                .forEach(id => { const el = document.getElementById(id); if (el) el.value = ''; });
+            document.getElementById('senior-search').value = '';
+            // Remove highlight
+            document.querySelectorAll('.filter-field.has-filter').forEach(el => el.classList.remove('has-filter'));
+            applyFilterAndSort();
+        });
+
+        // ADD RECORD
+        document.getElementById('senior-add-btn')?.addEventListener('click', () => openSeniorProfile(null, true));
+
+        setupSortDropdown();
+    }
+
+    function highlightActiveFilters() {
+        const fieldMap = {
+            'sf-barangay': 'barangay', 'sf-age': 'age', 'sf-sex': 'sex',
+            'sf-civil': 'civil', 'sf-living': 'living', 'sf-health': 'health',
+            'sf-mobility': 'mobility', 'sf-priority': 'priority', 'sf-status': 'status'
+        };
+        Object.entries(fieldMap).forEach(([elId, key]) => {
+            const el = document.getElementById(elId);
+            if (!el) return;
+            const wrap = el.closest('.filter-field');
+            if (wrap) wrap.classList.toggle('has-filter', !!(activeFilters[key]));
         });
     }
 
-    function filterSeniors() {
-        const q = (document.getElementById('senior-search')?.value || '').toLowerCase();
-        const brgy = (document.getElementById('sf-barangay')?.value || '').toLowerCase();
-        const prio = (document.getElementById('sf-priority')?.value || '').toLowerCase();
-        const stat = (document.getElementById('sf-status')?.value || '').toLowerCase();
-        const filtered = MOCK_SENIORS.filter(s =>
-            (!q    || s.name.toLowerCase().includes(q) || s.id.toLowerCase().includes(q))
-         && (!brgy || s.barangay.toLowerCase().includes(brgy))
-         && (!prio || s.priority.toLowerCase().includes(prio))
-         && (!stat || s.status.toLowerCase().includes(stat))
-        );
-        renderSeniors(filtered);
+    function applyFilterAndSort() {
+        const q = (document.getElementById('senior-search')?.value || '').toLowerCase().trim();
+
+        const filtered = MOCK_SENIORS.filter(s => {
+            // Live search — always applied
+            if (q && !s.name.toLowerCase().includes(q) && !s.id.toLowerCase().includes(q)) return false;
+
+            // Applied filters (only active after clicking APPLY)
+            const f = activeFilters;
+            if (f.barangay && s.barangay !== f.barangay)                                         return false;
+            if (f.sex      && s.sex      !== f.sex)                                               return false;
+            if (f.civil    && s.civil    !== f.civil)                                             return false;
+            if (f.living   && s.living   !== f.living)                                            return false;
+            if (f.mobility && s.mobility !== f.mobility)                                          return false;
+            if (f.priority && s.priority !== f.priority)                                          return false;
+            if (f.status   && s.status   !== f.status)                                            return false;
+            if (f.health   && !(s.health || '').toLowerCase().includes(f.health))                 return false;
+            if (f.age) {
+                const age = s.age || 0;
+                if (f.age === '60-69'  && !(age >= 60 && age <= 69)) return false;
+                if (f.age === '70-79'  && !(age >= 70 && age <= 79)) return false;
+                if (f.age === '80+'    && age < 80)                   return false;
+            }
+            return true;
+        });
+
+        renderSeniors(sortSeniors(filtered));
     }
 
-    /* Open senior profile sub-page */
-    function openSeniorProfile(seniorId) {
+        /* Open senior profile sub-page */
+    /* ── VULNERABILITY SCORING ENGINE ──────────────────────────
+       Scores each domain 0-3, totals to 0-12.
+       Priority: High (10-12), Medium (7-9), Low (0-6)
+    ─────────────────────────────────────────────────────────── */
+    function calcVulnerability() {
+        // 1. Age score
+        let ageScore = 0, ageNum = 0;
+        const dobVal = document.getElementById('sp-dob')?.value;
+        if (dobVal) {
+            const birth = new Date(dobVal);
+            const today = new Date();
+            ageNum = today.getFullYear() - birth.getFullYear() -
+                     (today < new Date(today.getFullYear(), birth.getMonth(), birth.getDate()) ? 1 : 0);
+        } else {
+            ageNum = parseInt(document.getElementById('sp-age')?.value) || 0;
+        }
+        if (ageNum >= 80)      ageScore = 3;
+        else if (ageNum >= 70) ageScore = 2;
+        else if (ageNum >= 60) ageScore = 1;
+
+        // 2. Health score
+        const health = (document.getElementById('sp-health')?.value || '').toLowerCase();
+        const severe   = ['stroke','dementia','cancer','heart','renal','alzheimer'];
+        const moderate = ['diabetes','copd','asthma','parkinson','hypertension'];
+        let healthScore = 0;
+        const condCount = health.trim() ? (health.match(/,/g) || []).length + 1 : 0;
+        if (severe.some(c => health.includes(c)))                        healthScore = 3;
+        else if (condCount >= 2 || moderate.some(c => health.includes(c))) healthScore = 2;
+        else if (condCount >= 1)                                           healthScore = 1;
+
+        // 3. Mobility score
+        const mobility = (document.getElementById('sp-mobility')?.value || '').toLowerCase();
+        let mobilityScore = 0;
+        if (mobility.includes('bedridden') || mobility.includes('wheelchair')) mobilityScore = 3;
+        else if (mobility.includes('limited') || mobility.includes('assistance') || mobility.includes('uses aid')) mobilityScore = 2;
+        else if (mobility !== '' && !mobility.includes('fully independent')) mobilityScore = 1;
+
+        // 4. Living situation score
+        const living = (document.getElementById('sp-living')?.value || '').toLowerCase();
+        let livingScore = 0;
+        if (living.includes('alone'))         livingScore = 3;
+        else if (living.includes('care'))     livingScore = 2;
+        else if (living.includes('caregiver'))livingScore = 1;
+
+        const total = ageScore + healthScore + mobilityScore + livingScore;
+
+        // Update breakdown
+        setText('sp-v-age',      ageScore      + '/3');
+        setText('sp-v-health',   healthScore   + '/3');
+        setText('sp-v-mobility', mobilityScore + '/3');
+        setText('sp-v-living',   livingScore   + '/3');
+
+        const scoreDisplay = document.getElementById('sp-vulnscore-display');
+        if (scoreDisplay) {
+            scoreDisplay.textContent = total;
+            scoreDisplay.style.color = total >= 10 ? '#C0392B' : total >= 7 ? '#C77F37' : '#5F8B5A';
+        }
+
+        const priorityLabel = total >= 10 ? 'High' : total >= 7 ? 'Medium' : 'Low';
+        const vsEl = document.getElementById('sp-vulnscore');
+        if (vsEl) vsEl.value = total + '/12';
+        const plEl = document.getElementById('sp-prioritylevel');
+        if (plEl) {
+            plEl.value = priorityLabel + ' Priority';
+            plEl.style.color = total >= 10 ? '#C0392B' : total >= 7 ? '#C77F37' : '#5F8B5A';
+        }
+        return { total, ageScore, healthScore, mobilityScore, livingScore, priorityLabel };
+    }
+
+    // Auto-recalculate when key fields change
+    ['sp-dob','sp-health','sp-mobility','sp-living'].forEach(id => {
+        document.getElementById(id)?.addEventListener('change', calcVulnerability);
+        document.getElementById(id)?.addEventListener('input',  calcVulnerability);
+    });
+
+    // Auto-calc age from DOB
+    document.getElementById('sp-dob')?.addEventListener('change', function() {
+        if (!this.value) return;
+        const birth = new Date(this.value);
+        const today = new Date();
+        const age   = today.getFullYear() - birth.getFullYear() -
+                     (today < new Date(today.getFullYear(), birth.getMonth(), birth.getDate()) ? 1 : 0);
+        const ageEl = document.getElementById('sp-age');
+        if (ageEl) ageEl.value = age + ' years old';
+        calcVulnerability();
+    });
+
+    /* ── OPEN SENIOR PROFILE ─────────────────────────────── */
+    // openSeniorProfile(seniorId, editMode)
+    // seniorId = null  → new record (edit mode forced on)
+    // editMode = true  → open in edit mode immediately (from Edit button)
+    // editMode = false → open in view mode (from View button)
+    function openSeniorProfile(seniorId, editMode) {
         const s = seniorId ? MOCK_SENIORS.find(x => x.id === seniorId) : null;
-        // Populate fields
-        setValue('sp-fullname',    s ? s.name    : '');
-        setValue('sp-dob',         s ? 'March 14, 1985' : '');
-        setValue('sp-age',         s ? s.age + ' years old' : '');
-        setValue('sp-sex',         s ? (s.initials[0] === 'M' ? 'Male' : 'Female') : '');
-        setValue('sp-civil',       s ? s.civil   : '');
-        setValue('sp-contact',     s ? '+63 917 000 0000' : '');
-        setValue('sp-seniorid',    s ? s.id      : '');
-        setValue('sp-govid',       s ? 'PSN-000000' : '');
-        setValue('sp-barangay',    s ? s.barangay : '');
-        setValue('sp-living',      s ? s.living  : '');
-        setValue('sp-address',     s ? '123 Main St., ' + s.barangay : '');
-        setValue('sp-rep',         s ? 'N/A' : '');
-        setValue('sp-health',      s ? s.health  : '');
-        setValue('sp-mobility',    s ? s.mobility : '');
-        setValue('sp-lasthv',      s ? 'May 1, 2026' : '');
-        setValue('sp-equipment',   s ? 'Wheelchair' : '');
-        setValue('sp-accstatus',   s ? s.status  : '');
-        setValue('sp-vulnscore',   s ? s.vulnScore + '/' + s.vulnMax : '');
-        setValue('sp-prioritylevel', s ? s.priority + ' Priority' : '');
+        // Always start in view mode, then enter edit if requested
+        spExitEditMode(true);
+        ['senior','govid','oscaid','repid'].forEach(k => spClearPhoto(k));
+
+        // Text inputs
+        setValue('sp-fullname',  s ? s.name      : '');
+        setValue('sp-age',       s ? (s.age + ' years old') : '');
+        setValue('sp-contact',   s ? (s.contact || '+63 917 000 0000') : '');
+        setValue('sp-seniorid',  s ? s.id        : '');
+        setValue('sp-barangay',  s ? s.barangay  : '');
+        setValue('sp-address',   s ? (s.address || '123 Main St., ' + s.barangay) : '');
+        setValue('sp-rep',       s ? (s.rep || 'N/A') : '');
+        setValue('sp-health',    s ? s.health    : '');
+
+        // Date inputs
+        setValue('sp-dob',        s ? (s.dob || '1985-03-14') : '');
+        setValue('sp-registered', s ? (s.registered || '2022-03-15') : '');
+        setValue('sp-lasthv',     s ? (s.lasthv || '') : '');
+
+        // Select dropdowns
+        setSelectValue('sp-sex',       s ? (s.sex || '') : '');
+        setSelectValue('sp-civil',     s ? s.civil    : '');
+        setSelectValue('sp-living',    s ? s.living   : '');
+        setSelectValue('sp-mobility',  s ? mapMobility(s.mobility) : '');
+        setSelectValue('sp-equipment', s ? (s.equipment || 'Wheelchair') : 'None');
+        setSelectValue('sp-accstatus', s ? s.status   : 'Active');
+        setSelectValue('sp-govid',     s ? (s.govIdType || 'PhilSys (National ID)') : '');
+
+        calcVulnerability();
         switchTab('senior-profile-content');
+
+        // Enter edit mode if requested (new record or edit button)
+        if (editMode || !seniorId) {
+            spEnterEditMode();
+        }
+    }
+
+    function mapMobility(raw) {
+        if (!raw) return '';
+        raw = raw.toLowerCase();
+        if (raw.includes('bedridden'))  return 'Bedridden';
+        if (raw.includes('wheelchair')) return 'Wheelchair-Bound';
+        if (raw.includes('uses aid') || raw.includes('cane') || raw.includes('walker')) return 'Uses Aid (Cane/Walker)';
+        if (raw.includes('limited'))    return 'Limited Mobility';
+        if (raw.includes('assistance')) return 'Needs Assistance';
+        return 'Fully Independent';
     }
 
     function setValue(id, val) {
@@ -381,18 +756,285 @@ document.addEventListener('DOMContentLoaded', function () {
         if (el) el.value = val;
     }
 
-    document.getElementById('sp-back-btn')?.addEventListener('click', () => switchTab('senior-content'));
-    document.getElementById('senior-profile-edit-btn')?.addEventListener('click', function() {
-        document.querySelectorAll('.sp-input').forEach(el => el.removeAttribute('readonly'));
-        this.textContent = 'EDITING…';
-        this.disabled = true;
-    });
-    document.getElementById('sp-save-btn')?.addEventListener('click', () => {
-        /* [TODO: API] PATCH /api/seniors/:id */
-        document.querySelectorAll('.sp-input').forEach(el => el.setAttribute('readonly', true));
+    function setSelectValue(id, val) {
+        const el = document.getElementById(id);
+        if (!el) return;
+        for (let i = 0; i < el.options.length; i++) {
+            if (el.options[i].value === val || el.options[i].text === val) {
+                el.selectedIndex = i; return;
+            }
+        }
+    }
+
+    /* ── EDIT / SAVE / CANCEL ────────────────────────────── */
+    let spIsEditing = false;
+
+    function spEnterEditMode() {
+        spIsEditing = true;
+        const profileEl = document.getElementById('senior-profile-content');
+        profileEl?.classList.add('sp-editing');
+        profileEl?.querySelectorAll('.sp-input:not(.sp-readonly-always)').forEach(el => {
+            if (el.type !== 'file') el.removeAttribute('readonly');
+        });
+        profileEl?.querySelectorAll('.sp-select').forEach(el => el.removeAttribute('disabled'));
+        ['senior','govid','oscaid','repid'].forEach(k =>
+            document.getElementById('sp-photo-actions-' + k)?.classList.remove('hidden')
+        );
+        // Show cancel edit button, update edit btn label
+        document.getElementById('sp-cancel-edit-wrap')?.classList.remove('hidden');
         const editBtn = document.getElementById('senior-profile-edit-btn');
-        if (editBtn) { editBtn.innerHTML = '<svg viewBox="0 0 20 20" fill="none"><path d="M13.5 3.5L16.5 6.5L7 16H4V13L13.5 3.5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>EDIT'; editBtn.disabled = false; }
-        showToast('Senior record saved.');
+        if (editBtn) {
+            editBtn.innerHTML = `<svg viewBox="0 0 20 20" fill="none"><path d="M13.5 3.5L16.5 6.5L7 16H4V13L13.5 3.5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg> Editing…`;
+            editBtn.classList.add('sp-editing-label');
+            editBtn.disabled = true;
+        }
+        // Focus first editable field
+        setTimeout(() => document.getElementById('sp-fullname')?.focus({ preventScroll: true }), 50);
+    }
+
+    function spExitEditMode(silent) {
+        spIsEditing = false;
+        const profileEl = document.getElementById('senior-profile-content');
+        profileEl?.classList.remove('sp-editing');
+        profileEl?.querySelectorAll('.sp-input:not(.sp-readonly-always)').forEach(el => {
+            if (el.type !== 'file') el.setAttribute('readonly', true);
+        });
+        profileEl?.querySelectorAll('.sp-select').forEach(el => el.setAttribute('disabled', true));
+        ['senior','govid','oscaid','repid'].forEach(k =>
+            document.getElementById('sp-photo-actions-' + k)?.classList.add('hidden')
+        );
+        // Hide cancel button, restore edit button
+        document.getElementById('sp-cancel-edit-wrap')?.classList.add('hidden');
+        const editBtn = document.getElementById('senior-profile-edit-btn');
+        if (editBtn) {
+            editBtn.innerHTML = `<svg viewBox="0 0 20 20" fill="none"><path d="M13.5 3.5L16.5 6.5L7 16H4V13L13.5 3.5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg> EDIT`;
+            editBtn.classList.remove('sp-editing-label');
+            editBtn.disabled = false;
+        }
+    }
+
+    document.getElementById('senior-profile-edit-btn')?.addEventListener('click', spEnterEditMode);
+    document.getElementById('sp-cancel-edit-btn')?.addEventListener('click', () => {
+        spExitEditMode(true);
+        // Re-populate the last saved data (discard unsaved edits)
+        const sidEl = document.getElementById('sp-seniorid');
+        if (sidEl?.value) {
+            const s = MOCK_SENIORS.find(x => x.id === sidEl.value);
+            if (s) openSeniorProfile(s.id, false);
+        }
+    });
+    document.getElementById('sp-back-btn')?.addEventListener('click', () => { spExitEditMode(true); switchTab('senior-content'); });
+    document.getElementById('sp-save-btn')?.addEventListener('click', () => {
+        // Collect all field values
+        const vuln     = calcVulnerability();
+        const fullname = document.getElementById('sp-fullname')?.value?.trim() || '';
+        const seniorid = document.getElementById('sp-seniorid')?.value?.trim() || '';
+        const ageText  = document.getElementById('sp-age')?.value || '';
+        const ageNum   = parseInt(ageText) || 0;
+        const sex      = document.getElementById('sp-sex')?.value      || '';
+        const civil    = document.getElementById('sp-civil')?.value    || '';
+        const barangay = document.getElementById('sp-barangay')?.value?.trim() || '';
+        const living   = document.getElementById('sp-living')?.value   || '';
+        const health   = document.getElementById('sp-health')?.value?.trim() || '';
+        const mobility = document.getElementById('sp-mobility')?.value || '';
+        const equipment= document.getElementById('sp-equipment')?.value|| '';
+        const accstatus= document.getElementById('sp-accstatus')?.value|| 'Active';
+        const contact  = document.getElementById('sp-contact')?.value?.trim() || '';
+        const address  = document.getElementById('sp-address')?.value?.trim() || '';
+        const rep      = document.getElementById('sp-rep')?.value?.trim() || '';
+        const govIdType= document.getElementById('sp-govid')?.value    || '';
+        const dob      = document.getElementById('sp-dob')?.value       || '';
+        const registered= document.getElementById('sp-registered')?.value || '';
+        const lasthv   = document.getElementById('sp-lasthv')?.value   || '';
+
+        if (!fullname) { showToast('Full name is required.'); return; }
+        if (!seniorid) { showToast('Senior ID is required.'); return; }
+
+        // Build initials from name
+        const parts    = fullname.trim().split(/[\s,]+/).filter(Boolean);
+        const lastName = parts[0] || '';
+        const firstName= parts[1] || '';
+        const initials = ((lastName[0] || '') + (firstName[0] || '')).toUpperCase();
+
+        // Surname, First format for display
+        const displayName = parts.length > 1
+            ? lastName + ', ' + parts.slice(1).join(' ')
+            : fullname;
+
+        const existing = MOCK_SENIORS.find(x => x.id === seniorid);
+
+        if (existing) {
+            /* [TODO: API] PATCH /api/seniors/:id */
+            Object.assign(existing, {
+                name: displayName, initials, age: ageNum, sex, civil, barangay,
+                living, health, mobility, equipment, status: accstatus,
+                contact, address, rep, govIdType, dob, registered, lasthv,
+                vulnScore: vuln.total, vulnMax: 12, priority: vuln.priorityLabel
+            });
+        } else {
+            /* [TODO: API] POST /api/seniors */
+            // Check if ID already exists (different record)
+            if (MOCK_SENIORS.find(x => x.id === seniorid)) {
+                showToast('Senior ID already exists. Use a unique ID.');
+                return;
+            }
+            MOCK_SENIORS.push({
+                id: seniorid, name: displayName, initials,
+                age: ageNum, sex, civil, barangay, living, health, mobility,
+                equipment, status: accstatus, contact, address, rep,
+                govIdType, dob, registered, lasthv,
+                vulnScore: vuln.total, vulnMax: 12, priority: vuln.priorityLabel
+            });
+        }
+
+        // Refresh all senior-related UI
+        updateSeniorStats();
+        refreshBarangayDropdown();
+        activeFilters = {};
+        applyFilterAndSort();
+        renderPriority(buildPriorityFromSeniors());
+        updatePriorityStats();
+
+        spExitEditMode(false);
+        showToast(existing ? 'Senior record updated.' : 'New senior added to records.');
+    });
+
+    document.getElementById('sp-delete-btn')?.addEventListener('click', () => {
+        const seniorid = document.getElementById('sp-seniorid')?.value?.trim();
+        if (!seniorid) { showToast('No record to delete.'); return; }
+        if (confirm('Delete this senior record? This cannot be undone.')) {
+            /* [TODO: API] DELETE /api/seniors/:id */
+            const idx = MOCK_SENIORS.findIndex(x => x.id === seniorid);
+            if (idx > -1) MOCK_SENIORS.splice(idx, 1);
+            updateSeniorStats();
+            refreshBarangayDropdown();
+            applyFilterAndSort();
+            renderPriority(buildPriorityFromSeniors());
+            updatePriorityStats();
+            spExitEditMode(true);
+            switchTab('senior-content');
+            showToast('Senior record deleted.');
+        }
+    });
+
+    /* ── AUTO-POPULATE PRIORITY MONITORING from seniors ──── */
+
+    function updatePriorityStats() {
+        const total  = MOCK_SENIORS.length;
+        const high   = MOCK_SENIORS.filter(s => s.priority === 'High').length;
+        const medium = MOCK_SENIORS.filter(s => s.priority === 'Medium').length;
+        const low    = MOCK_SENIORS.filter(s => s.priority === 'Low' || !s.priority).length;
+        setText('pm-total',  total.toLocaleString());
+        setText('pm-high',   high.toLocaleString());
+        setText('pm-medium', medium.toLocaleString());
+        setText('pm-low',    low.toLocaleString());
+    }
+
+    function buildPriorityFromSeniors() {
+        return [...MOCK_SENIORS]
+            .sort((a, b) => (b.vulnScore || 0) - (a.vulnScore || 0))
+            .map(s => {
+                const sc       = s.vulnScore || 0;
+                const priLabel = sc >= 10 ? 'High priority' : sc >= 7 ? 'Medium priority' : 'Low priority';
+                const h        = (s.health || '').toLowerCase();
+                const m        = (s.mobility || '').toLowerCase();
+                const l        = (s.living  || '').toLowerCase();
+                const aS = s.age >= 80 ? 3 : s.age >= 70 ? 2 : s.age >= 60 ? 1 : 0;
+                const hS = ['stroke','dementia','cancer','heart','renal','alzheimer'].some(c => h.includes(c)) ? 3
+                         : (h.match(/,/g)||[]).length >= 1 ? 2 : h ? 1 : 0;
+                const mS = m.includes('bedridden') || m.includes('wheelchair') ? 3
+                         : m.includes('limited') || m.includes('assistance') || m.includes('uses aid') ? 2
+                         : m && !m.includes('fully independent') ? 1 : 0;
+                const lS = l.includes('alone') ? 3 : l.includes('care') ? 2 : l.includes('caregiver') ? 1 : 0;
+                return {
+                    id: s.id, name: s.name, barangay: s.barangay || '—', age: s.age,
+                    lastVisit: s.lasthv ? new Date(s.lasthv).toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'}) : 'No record',
+                    priorityLabel: priLabel,
+                    score: sc, maxScore: 12,
+                    age_score: aS, age_max: 3,
+                    age_detail: (s.age || '—') + ' years old\nAge-based risk classification',
+                    health_score: hS, health_max: 3,
+                    health_detail: s.health || 'No condition recorded',
+                    mobility_score: mS, mobility_max: 3,
+                    mobility_detail: s.mobility || 'Not assessed',
+                    living_score: lS, living_max: 3,
+                    living_detail: s.living || 'Not specified',
+                    rationale: `${s.name} has a vulnerability score of ${sc}/12, indicating ${priLabel.replace(' priority','')} risk. ` +
+                               (sc >= 10 ? 'Immediate intervention is recommended.' :
+                                sc >= 7  ? 'Regular monitoring and follow-up needed.' :
+                                           'Routine wellness check is sufficient.'),
+                    actions: sc >= 10 ? ['Urgent home visit', 'Caregiver referral', 'Medical priority release']
+                           : sc >= 7  ? ['Schedule home visit', 'Wellness check']
+                           :            ['Routine check-in']
+                };
+            });
+    }
+
+    /* ── PHOTO UPLOAD ────────────────────────────────────── */
+    ['senior','govid','oscaid','repid'].forEach(key => {
+        document.getElementById('sp-file-' + key)?.addEventListener('change', function() {
+            const file = this.files[0]; if (!file) return;
+            const reader = new FileReader();
+            reader.onload = e => spSetPhoto(key, e.target.result);
+            reader.readAsDataURL(file);
+            this.value = '';
+        });
+    });
+
+    function spSetPhoto(key, dataUrl) {
+        const img   = document.getElementById('sp-img-' + key);
+        const empty = document.getElementById('sp-empty-' + key);
+        if (img)   { img.src = dataUrl; img.style.display = 'block'; }
+        if (empty) empty.style.display = 'none';
+    }
+    function spClearPhoto(key) {
+        const img   = document.getElementById('sp-img-' + key);
+        const empty = document.getElementById('sp-empty-' + key);
+        if (img)   { img.src = ''; img.style.display = 'none'; }
+        if (empty) empty.style.display = '';
+    }
+
+    /* ── CAMERA CAPTURE ──────────────────────────────────── */
+    let cameraStream = null, cameraTargetKey = null;
+
+    document.querySelectorAll('.sp-capture-btn').forEach(btn =>
+        btn.addEventListener('click', () => openCameraModal(btn.dataset.target))
+    );
+
+    function openCameraModal(targetKey) {
+        cameraTargetKey = targetKey;
+        const errEl = document.getElementById('camera-error');
+        if (errEl) errEl.textContent = '';
+        document.getElementById('camera-modal')?.classList.remove('hidden');
+        navigator.mediaDevices?.getUserMedia({ video: { facingMode:'user' }, audio:false })
+            .then(stream => {
+                cameraStream = stream;
+                const video = document.getElementById('camera-video');
+                if (video) { video.srcObject = stream; video.play(); }
+            })
+            .catch(err => { if (errEl) errEl.textContent = 'Camera unavailable: ' + (err.message||'permission denied'); });
+    }
+
+    function closeCameraModal() {
+        if (cameraStream) { cameraStream.getTracks().forEach(t => t.stop()); cameraStream = null; }
+        document.getElementById('camera-modal')?.classList.add('hidden');
+        const video = document.getElementById('camera-video');
+        if (video) video.srcObject = null;
+    }
+
+    document.getElementById('camera-modal-close')?.addEventListener('click', closeCameraModal);
+    document.getElementById('camera-cancel')?.addEventListener('click', closeCameraModal);
+    document.getElementById('camera-modal')?.addEventListener('click', e => { if (e.target === document.getElementById('camera-modal')) closeCameraModal(); });
+
+    document.getElementById('camera-capture-btn')?.addEventListener('click', () => {
+        const video = document.getElementById('camera-video');
+        const canvas = document.getElementById('camera-canvas');
+        if (!video || !canvas || !cameraTargetKey) return;
+        canvas.width = video.videoWidth || 640; canvas.height = video.videoHeight || 480;
+        canvas.getContext('2d').drawImage(video, 0, 0);
+        spSetPhoto(cameraTargetKey, canvas.toDataURL('image/jpeg', 0.85));
+        closeCameraModal();
+        showToast('Photo captured successfully.');
     });
 
     /* ════════════════════════════════════════════
@@ -458,7 +1100,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     document.getElementById('priority-search')?.addEventListener('input', function() {
         const q = this.value.toLowerCase();
-        const filtered = MOCK_PRIORITY.filter(p =>
+        const filtered = buildPriorityFromSeniors().filter(p =>
             p.name.toLowerCase().includes(q) || p.id.toLowerCase().includes(q) || p.barangay.toLowerCase().includes(q)
         );
         renderPriority(filtered);
@@ -473,7 +1115,7 @@ document.addEventListener('DOMContentLoaded', function () {
         tbody.innerHTML = '';
         data.forEach(v => {
             const priCls  = v.priority === 'High' ? 'badge-high' : v.priority === 'Medium' ? 'badge-medium' : 'badge-low';
-            const statCls = 'badge-scheduled';
+            const statCls = v.status === 'Completed' ? 'badge-approved' : v.status === 'Missed' ? 'badge-rejected' : v.status === 'Ongoing' ? 'badge-review' : 'badge-scheduled';
             const tr = document.createElement('tr');
             tr.innerHTML = `
                 <td style="font-size:0.78rem;color:var(--ink-soft)">${v.id}</td>
@@ -486,21 +1128,60 @@ document.addEventListener('DOMContentLoaded', function () {
                 <td><span class="badge ${statCls}">${v.status}</span></td>`;
             tbody.appendChild(tr);
         });
+        // Update KPIs from full dataset
+        updateHomeVisitStats();
     }
 
+    let hvActiveFilters = {};
+
     function setupHomeVisitFilters() {
-        document.getElementById('hv-search')?.addEventListener('input', filterHV);
-        document.querySelectorAll('.filter-apply-btn').forEach(btn => {
-            if (btn.closest('#home-content')) btn.addEventListener('click', filterHV);
+        // Collapse/expand
+        document.getElementById('hv-filter-toggle')?.addEventListener('click', function() {
+            const body = document.getElementById('hv-filter-body');
+            const collapsed = body.style.display === 'none';
+            body.style.display = collapsed ? '' : 'none';
+            this.textContent = collapsed ? 'Collapse' : 'Expand';
+        });
+
+        // Live search
+        document.getElementById('hv-search')?.addEventListener('input', applyHVFilter);
+
+        // APPLY
+        document.getElementById('hv-filter-apply')?.addEventListener('click', () => {
+            hvActiveFilters = {
+                barangay: document.getElementById('hv-barangay')?.value || '',
+                priority: document.getElementById('hv-priority')?.value || '',
+                status  : document.getElementById('hv-status')?.value   || '',
+            };
+            applyHVFilter();
+        });
+
+        // CLEAR ALL
+        document.getElementById('hv-filter-clear')?.addEventListener('click', () => {
+            hvActiveFilters = {};
+            ['hv-barangay','hv-priority','hv-status'].forEach(id => {
+                const el = document.getElementById(id); if (el) el.value = '';
+            });
+            document.getElementById('hv-search').value = '';
+            applyHVFilter();
         });
     }
-    function filterHV() {
+
+    function applyHVFilter() {
         const q = (document.getElementById('hv-search')?.value || '').toLowerCase();
-        const filtered = MOCK_HV.filter(v =>
-            !q || v.name.toLowerCase().includes(q) || v.id.toLowerCase().includes(q)
-        );
+        const f = hvActiveFilters;
+        const filtered = MOCK_HV.filter(v => {
+            if (q && !v.name.toLowerCase().includes(q) && !v.id.toLowerCase().includes(q)) return false;
+            if (f.barangay && !v.addr.includes(f.barangay)) return false;
+            if (f.priority && v.priority !== f.priority)    return false;
+            if (f.status   && v.status   !== f.status)      return false;
+            return true;
+        });
         renderHomeVisits(filtered);
     }
+
+    // Keep old name as alias so nothing breaks
+    function filterHV() { applyHVFilter(); }
 
     /* ════════════════════════════════════════════
        9. UPDATES & NOTIFICATIONS
@@ -668,9 +1349,17 @@ document.addEventListener('DOMContentLoaded', function () {
        11. PROFILE — populate / edit / save
     ════════════════════════════════════════════ */
     function populateProfile(s) {
+        // Sidebar
         setText('sidebar-avatar', s.initials);
         setText('sidebar-name',   s.firstName || s.fullName.split(' ')[0]);
         setText('sidebar-role',   `Staff · ${s.position}`);
+        // Dashboard greeting (live name update)
+        const greetEl = document.getElementById('dash-greeting');
+        if (greetEl) {
+            const h = new Date().getHours();
+            const greet = h < 12 ? 'Good morning' : h < 17 ? 'Good afternoon' : 'Good evening';
+            greetEl.textContent = greet + ', ' + (s.firstName || s.fullName.split(' ')[0]);
+        }
         setText('profile-hero-avatar', s.initials);
         setText('profile-hero-name',   s.fullName);
         setText('profile-hero-role',   `Staff · ${s.position}`);
@@ -777,6 +1466,8 @@ document.addEventListener('DOMContentLoaded', function () {
         profileViewMode.classList.remove('hidden');
         if (profileEditBtn) profileEditBtn.style.display = '';
         contentScroll.scrollTo({ top: 0, behavior: 'smooth' });
+        // Refresh dashboard greeting with new name
+        updateDashboardKPIs();
         showToast('Profile updated successfully.');
     }
 
@@ -844,12 +1535,104 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     /* ════════════════════════════════════════════
+       CALENDAR MODAL ENGINE
+       openCalendar(inputId, title)
+    ════════════════════════════════════════════ */
+    let calTargetId    = null;
+    let calYear        = new Date().getFullYear();
+    let calMonth       = new Date().getMonth();
+    let calSelectedISO = null;
+    const MONTHS = ['January','February','March','April','May','June',
+                    'July','August','September','October','November','December'];
+
+    function openCalendar(inputId, title) {
+        calTargetId = inputId;
+        const el  = document.getElementById(inputId);
+        const val = el ? el.value : '';
+        if (val) {
+            const d = new Date(val + 'T00:00:00');
+            calYear  = d.getFullYear(); calMonth = d.getMonth(); calSelectedISO = val;
+        } else {
+            const now = new Date(); calYear = now.getFullYear(); calMonth = now.getMonth(); calSelectedISO = null;
+        }
+        const titleEl = document.getElementById('calendar-modal-title');
+        if (titleEl) titleEl.textContent = title || 'Select Date';
+        renderCalDays();
+        document.getElementById('calendar-modal')?.classList.remove('hidden');
+    }
+
+    function renderCalDays() {
+        const label = document.getElementById('cal-month-label');
+        if (label) label.textContent = MONTHS[calMonth] + ' ' + calYear;
+        const daysEl = document.getElementById('cal-days');
+        if (!daysEl) return;
+        daysEl.innerHTML = '';
+        const today     = new Date();
+        const firstDay  = new Date(calYear, calMonth, 1).getDay();
+        const daysInMon = new Date(calYear, calMonth + 1, 0).getDate();
+        for (let i = 0; i < firstDay; i++) {
+            const blank = document.createElement('div'); blank.className = 'cal-day empty'; daysEl.appendChild(blank);
+        }
+        for (let d = 1; d <= daysInMon; d++) {
+            const isoStr = calYear + '-' + String(calMonth+1).padStart(2,'0') + '-' + String(d).padStart(2,'0');
+            const btn = document.createElement('div');
+            btn.className = 'cal-day'; btn.textContent = d; btn.dataset.iso = isoStr;
+            if (d === today.getDate() && calMonth === today.getMonth() && calYear === today.getFullYear()) btn.classList.add('today');
+            if (isoStr === calSelectedISO) btn.classList.add('selected');
+            btn.addEventListener('click', () => {
+                daysEl.querySelectorAll('.cal-day').forEach(x => x.classList.remove('selected'));
+                btn.classList.add('selected'); calSelectedISO = isoStr;
+            });
+            daysEl.appendChild(btn);
+        }
+    }
+
+    document.getElementById('cal-prev')?.addEventListener('click', () => {
+        calMonth--; if (calMonth < 0) { calMonth = 11; calYear--; } renderCalDays();
+    });
+    document.getElementById('cal-next')?.addEventListener('click', () => {
+        calMonth++; if (calMonth > 11) { calMonth = 0; calYear++; } renderCalDays();
+    });
+    document.getElementById('calendar-modal-close')?.addEventListener('click', () =>
+        document.getElementById('calendar-modal')?.classList.add('hidden'));
+    document.getElementById('calendar-modal-cancel')?.addEventListener('click', () =>
+        document.getElementById('calendar-modal')?.classList.add('hidden'));
+    document.getElementById('calendar-modal')?.addEventListener('click', e => {
+        if (e.target === document.getElementById('calendar-modal'))
+            document.getElementById('calendar-modal')?.classList.add('hidden');
+    });
+    document.getElementById('calendar-modal-confirm')?.addEventListener('click', () => {
+        if (calSelectedISO && calTargetId) {
+            const target = document.getElementById(calTargetId);
+            if (target) { target.value = calSelectedISO; target.dispatchEvent(new Event('change', { bubbles: true })); }
+        }
+        document.getElementById('calendar-modal')?.classList.add('hidden');
+    });
+
+    // Wire all calendar buttons
+    document.querySelectorAll('.sp-cal-btn').forEach(btn => {
+        btn.removeAttribute('onclick');
+        const input   = btn.closest('.sp-date-wrap')?.querySelector('.sp-date-input');
+        const inputId = input?.id;
+        const labelTxt= btn.closest('.sp-field')?.querySelector('label')?.textContent?.replace(':','').trim() || 'Select Date';
+        if (!inputId) return;
+        btn.addEventListener('click', () => {
+            const inEditMode = document.getElementById('senior-profile-content')?.classList.contains('sp-editing');
+            if (!inEditMode) return;
+            openCalendar(inputId, labelTxt);
+        });
+    });
+
+    /* ════════════════════════════════════════════
        14. ESCAPE KEY
     ════════════════════════════════════════════ */
     document.addEventListener('keydown', e => {
         if (e.key !== 'Escape') return;
-        if (!passwordModal?.classList.contains('hidden')) closePwModal();
-        if (!logoutModal?.classList.contains('hidden'))  logoutModal.classList.add('hidden');
+        if (!passwordModal?.classList.contains('hidden'))                                    closePwModal();
+        if (!logoutModal?.classList.contains('hidden'))                                      logoutModal.classList.add('hidden');
+        if (!document.getElementById('calendar-modal')?.classList.contains('hidden'))       document.getElementById('calendar-modal')?.classList.add('hidden');
+        if (!document.getElementById('camera-modal')?.classList.contains('hidden'))         closeCameraModal();
+        document.getElementById('sort-dropdown')?.classList.remove('open');
     });
 
     /* ════════════════════════════════════════════
